@@ -1,0 +1,21 @@
+.Container {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    height: 90vh;
+    width: 25vw;
+}
+
+.topContainer {
+    min-height: 15vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottomContainer {
+    min-height: 40vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}

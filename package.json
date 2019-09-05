@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
-    "sass": "^1.23.0-module.beta.1",
-    "typescript": "^3.6.2"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

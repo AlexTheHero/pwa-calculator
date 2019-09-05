@@ -1,5 +1,11 @@
 .App{
-  background-color: aquamarine;
+  display: flex;
+  background-color: #282c34;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: auto;
 }
 .App-header{
   background-color: #282c34;
