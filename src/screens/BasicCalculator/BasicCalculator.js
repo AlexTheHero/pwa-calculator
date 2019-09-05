@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './BasicCalculator.scss';
-import Button from "../../components/Buttons/Button";
+import CalculatorButton from "../../components/Buttons/CalculatorButton/CalculatorButton";
 
 export default class BasicCalculator extends Component {
 	render() {
@@ -13,34 +13,34 @@ export default class BasicCalculator extends Component {
 				
 				<div className="bottomContainer">
 					<div className="row">
-						<Button handleClick={() => console.log('ok')} text={"del"}/>
-						<Button handleClick={() => console.log('ok')} text={"+/-"}/>
-						<Button handleClick={() => console.log('ok')} text={"%"}/>
-						<Button handleClick={() => console.log('ok')} text={"/"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"del"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"+/-"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"%"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"/"}/>
 					</div>
 					<div className="row">
-						<Button handleClick={() => console.log('ok')} text={"7"}/>
-						<Button handleClick={() => console.log('ok')} text={"8"}/>
-						<Button handleClick={() => console.log('ok')} text={"9"}/>
-						<Button handleClick={() => console.log('ok')} text={"x"} customStyle/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"7"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"8"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"9"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"x"} customStyle/>
 					</div>
 					<div className="row">
-						<Button handleClick={() => console.log('ok')} text={"4"}/>
-						<Button handleClick={() => console.log('ok')} text={"5"}/>
-						<Button handleClick={() => console.log('ok')} text={"6"}/>
-						<Button handleClick={() => console.log('ok')} text={"-"} customStyle/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"4"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"5"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"6"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"-"} customStyle/>
 					</div>
 					<div className="row">
-						<Button handleClick={() => console.log('ok')} text={"1"}/>
-						<Button handleClick={() => console.log('ok')} text={"2"}/>
-						<Button handleClick={() => console.log('ok')} text={"3"}/>
-						<Button handleClick={() => console.log('ok')} text={"+"} customStyle/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"1"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"2"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"3"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"+"} customStyle/>
 					</div>
 					<div className="row">
-						<Button handleClick={() => console.log('ok')} text={"0"}/>
-						<Button handleClick={() => console.log('ok')} isDisabled/>
-						<Button handleClick={() => console.log('ok')} text={","}/>
-						<Button handleClick={() => console.log('ok')} text={"="} customStyle/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"0"}/>
+						<CalculatorButton handleClick={() => console.log('ok')} isDisabled/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={","}/>
+						<CalculatorButton handleClick={() => console.log('ok')} text={"="} customStyle/>
 					</div>
 				</div>
 			</div>

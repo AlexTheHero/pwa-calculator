@@ -1,0 +1,13 @@
+.Container {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  height: 90vh;
+  width: 25vw;
+  border-radius: 16px;
+}
+
+.Header{
+  display: flex;
+  height: 40vh;
+}

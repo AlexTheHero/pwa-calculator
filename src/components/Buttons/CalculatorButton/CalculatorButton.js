@@ -1,9 +1,9 @@
 import React from 'react';
-import './Button.scss';
+import './CalculatorButton.scss';
 
-const Button = ({handleClick, text, customStyle, isDisabled}) => {
+const CalculatorButton = ({handleClick, text, customStyle, isDisabled}) => {
 	const containerStyle = customStyle ? "ButtonStructure" : "DefaultButtonStructure";
-	const defaultText = text || "Button Text Info";
+	const defaultText = text || "CalculatorButton Text Info";
 	
 	return (
 		isDisabled ?
@@ -17,4 +17,4 @@ const Button = ({handleClick, text, customStyle, isDisabled}) => {
 	)
 };
 
-export default Button;
+export default CalculatorButton;
