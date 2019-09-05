@@ -1,13 +1,19 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({handleClick}) => {
-	const defaultText = "Button Text Info";
+const Button = ({handleClick, text, customStyle, isDisabled}) => {
+	const containerStyle = customStyle ? "ButtonStructure" : "DefaultButtonStructure";
+	const defaultText = text || "Button Text Info";
 	
 	return (
-		<button className="DefaultButton" onClick={handleClick}>
-			<p>{defaultText}</p>
-		</button>
+		isDisabled ?
+			<div className={"DefaultButtonContainer"}/>
+			:
+			<button className="DefaultButtonContainer" onClick={handleClick}>
+				<div className={containerStyle}>
+					<p className="textStyle">{defaultText}</p>
+				</div>
+			</button>
 	)
 };
 
