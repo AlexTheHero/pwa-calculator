@@ -1,0 +1,4 @@
+export const basic = {
+	DISPLAY_VALUE: 'CALCULATED_VALUE',
+	CLEAR_DATA: 'CLEAR_DATA'
+};

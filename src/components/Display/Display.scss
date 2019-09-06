@@ -1,0 +1,62 @@
+.mainContainer {
+  min-height: 10vh;
+  height: 30vh;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+.topTextContainer {
+  height: 5vh;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: flex-end;
+  display: flex;
+}
+
+.topText {
+  font-size: 0.9em;
+  color: gray;
+  margin-right: 1vw;
+}
+
+.bottomTextContainer {
+  height: 10vh;
+  flex-direction: row;
+  display: flex;
+}
+
+.mainTextContainer {
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
+}
+
+.mainText {
+  height: 15vh;
+  font-size: 2.4em;
+  font-family: "Fira Code Medium", sans-serif;
+  color: #282c34;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+.mainContainerSeparatorLeft{
+  background-color: red;
+  width: 20%;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+  justify-items: flex-start;
+}
+
+.mainContainerSeparatorRight{
+  height: 15vh;
+  width: 80%;
+  background-color: limegreen;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+  justify-items: flex-end;
+}

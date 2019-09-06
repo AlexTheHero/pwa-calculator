@@ -7,35 +7,3 @@
     border-radius: 16px;
 }
 
-.Header{
-    min-height: 5vh;
-    height: 5vh;
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-
-.topContainer {
-    min-height: 10vh;
-    height: 25vh;
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-}
-
-.bottomContainer {
-    min-height: 40vh;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    height: 12vh;
-    align-items: center;
-    justify-content: center;
-}

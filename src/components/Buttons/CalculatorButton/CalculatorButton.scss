@@ -17,6 +17,10 @@
   width: 7vh;
   height: 7vh;
   border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
 }
 
 .DefaultButtonStructure:hover{
@@ -31,6 +35,10 @@
   width: 7vh;
   height: 7vh;
   border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
 }
 
 .ButtonStructure:hover{
@@ -39,8 +47,8 @@
 }
 
 .textStyle{
-  font-size: 25px;
+  font-size: 2em;
   align-self: center;
   font-family: Feather, serif;
-  line-height: 5px;
+  line-height: 0.4em;
 }

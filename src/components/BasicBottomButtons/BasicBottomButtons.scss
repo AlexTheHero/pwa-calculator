@@ -1,0 +1,14 @@
+.bottomContainer {
+  min-height: 40vh;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 12vh;
+  align-items: center;
+  justify-content: center;
+}

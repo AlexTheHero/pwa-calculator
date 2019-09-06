@@ -1,11 +1,21 @@
 .Button{
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
   height: 10vh;
   background-color: IndianRed;
 }
 
+.Button:hover{
+  background-color: limegreen;
+};
+
 .Text{
-  font-size: 20px;
+  font-size: 2em;
   font-weight: bold;
   color: whitesmoke;
   font-family: "Apple SD Gothic Neo", sans-serif;
+}
+
+.Text:hover{
+  color: black;
 }
