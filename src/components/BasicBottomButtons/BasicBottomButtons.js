@@ -6,16 +6,12 @@ const onAddValue = (props, number) => {
 	if(number === 0 && props.displayValue === null){
 		return;
 	}
+	if(number === "."){
+		if(props.displayValue === null) return;
+		if(props.displayValue.includes(".")) return;
+	}
 	
 	props.addValue(number);
-};
-
-const handleValueStatus = (props) => {
-	if(props.displaySymbol === "-"){
-		props.addSymbol(null);
-		return;
-	}
-	props.addSymbol("-");
 };
 
 const BasicBottomButtons = ({props}) => {
@@ -23,7 +19,7 @@ const BasicBottomButtons = ({props}) => {
 		<div className="bottomContainer">
 			<div className="row">
 				<CalculatorButton handleClick={() => props.clearData()} text={"del"}/>
-				<CalculatorButton handleClick={() => handleValueStatus(props)} text={"+/-"}/>
+				<CalculatorButton handleClick={() => props.makeSigned()} text={"+/-"}/>
 				<CalculatorButton handleClick={() => props.addSymbol("%")} text={"%"}/>
 				<CalculatorButton handleClick={() => props.addSymbol("/")} text={"/"}/>
 			</div>
@@ -48,7 +44,7 @@ const BasicBottomButtons = ({props}) => {
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 0)} text={"0"}/>
 				<CalculatorButton isDisabled/>
-				<CalculatorButton handleClick={() => props.addValue(".")} text={","}/>
+				<CalculatorButton handleClick={() => onAddValue(props,".")} text={","}/>
 				<CalculatorButton handleClick={() => console.log('ok')} text={"="} customStyle/>
 			</div>
 		</div>
