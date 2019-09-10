@@ -1,9 +1,12 @@
 import React from "react";
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({height, backgroundColor}) => {
+	const theHeight = height ? height : '5%';
+	const theBackground = backgroundColor ? backgroundColor : 'transparent';
+	
 	return(
-		<div className="basicHeader">
+		<div className="basicHeader" style={{height: theHeight, backgroundColor: theBackground}}>
 		</div>
 	)
 };

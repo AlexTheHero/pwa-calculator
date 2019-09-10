@@ -1,6 +1,5 @@
 .bottomContainer {
-  min-height: 40vh;
-  height: 55vh;
+  height: 60%;
   display: flex;
   flex-direction: column;
 }
@@ -8,7 +7,7 @@
 .row {
   display: flex;
   flex-direction: row;
-  height: 12vh;
+  height: 20%;
   align-items: center;
   justify-content: center;
 }

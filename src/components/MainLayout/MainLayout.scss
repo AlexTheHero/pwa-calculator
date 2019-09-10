@@ -2,12 +2,11 @@
   display: flex;
   background-color: white;
   flex-direction: column;
-  height: 90vh;
-  width: 25vw;
+  height: 90%;
+  width: 25%;
   border-radius: 16px;
-}
 
-.Header{
-  display: flex;
-  height: 40vh;
+  @media (max-width: 780px) {
+    width: 60%;
+  }
 }

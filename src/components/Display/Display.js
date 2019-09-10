@@ -1,26 +1,34 @@
 import React from "react";
 import "./Display.scss";
 
-const Display = ({props}) => {
-	let textDisplay = props.basic.displayValue ? props.basic.displayValue : "0";
+const changeTextSize = (text) => {
+	let rightEm = 2.4 * (14 / text.length);
 	
-	return(
-		<div className="mainContainer">
-			
-			<div className="topTextContainer">
-				<p className="topText">value</p>
+	if (text.length > 14) {
+		return `${rightEm}em`;
+	}
+	return '2.4em';
+};
+
+const Display = ({props}) => {
+	let textDisplay = props.displayValue ? props.displayValue : "0";
+	let symbolDisplay = props.displaySymbol ? props.displaySymbol : " ";
+	let fontSize = props.displayValue ? changeTextSize(props.displayValue) : '2.4em';
+	
+	return (
+		<div className="displayContainer">
+			<div className="displayTopContainer">
+				<p className="displayTopText">value</p>
 			</div>
-			
-			<div className="mainTextContainer">
-				<div className="mainContainerSeparatorLeft">
-					<p className="mainText"> - </p>
+			<div className="displayMainTextContainer">
+				<div className="displayMainLeft">
+					<p className="displayRightText">{symbolDisplay}</p>
 				</div>
-				<div className="mainContainerSeparatorRight">
-					<p className="mainText">{textDisplay}</p>
+				<div className="displayMainRight">
+					<p className="displayMainText" style={{fontSize: fontSize}}>{textDisplay}</p>
 				</div>
 			</div>
-			
-			<div className="bottomTextContainer">
+			<div className="displayBottomContainer">
 				<p>value</p>
 			</div>
 		</div>

@@ -1,15 +1,16 @@
 import React from "react";
-import "./WelcomeScreen.scss"
 import LayoutButton from "../../components/Buttons/LayoutButton/LayoutButton";
+import MainLayout from "../../components/MainLayout/MainLayout";
+import Header from "../../components/Header/Header";
 
 const WelcomeScreen = ({history}) => {
-	return(
-		<div className="Container">
-			<header className="Header"/>
+	return (
+		<MainLayout>
+			<Header height="40%"/>
 			<LayoutButton text={"Basic Calculator"} handleClick={() => history.push('/basic')}/>
 			<LayoutButton text={"Advanced Calculator"}/>
 			<LayoutButton text={"Material Calculator"}/>
-		</div>
+		</MainLayout>
 	)
 };
 

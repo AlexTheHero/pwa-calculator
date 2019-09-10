@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
-import './BasicCalculator.scss';
+import React, {Component} from 'react';
 import BasicBottomButtons from "../../components/BasicBottomButtons/BasicBottomButtons";
 import Header from "../../components/Header/Header";
 import Display from "../../components/Display/Display";
-import {addValue, clearData} from "../../config/actions/BasicActions";
+import {addValue, addSymbol, clearData} from "../../config/actions/BasicActions";
 import {connect} from "react-redux";
+import MainLayout from "../../components/MainLayout/MainLayout"
 
 class BasicCalculator extends Component {
-	constructor(props){
+	// eslint-disable-next-line no-useless-constructor
+	constructor(props) {
 		super(props);
 	}
 	
 	render() {
-		return(
-			<div className="Container">
+		return (
+			<MainLayout>
 				<Header/>
 				<Display props={this.props}/>
 				<BasicBottomButtons props={this.props}/>
-			</div>
+			</MainLayout>
 		)
 	}
 }
@@ -25,12 +26,14 @@ class BasicCalculator extends Component {
 const mapStateToProps = (state, ownProps) => {
 	addValue();
 	return {
-		basic: state.basic
+		displayValue: state.basic.displayValue,
+		displaySymbol: state.basic.displaySymbol
 	}
 };
 
 const mapDispatchToProps = {
 	addValue,
+	addSymbol,
 	clearData
 };
 
