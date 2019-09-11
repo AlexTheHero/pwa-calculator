@@ -78,6 +78,9 @@ export default (state = initialState, action) => {
 			else if(action.value === 'displaySymbol'){
 				CLEAR_SELECTED = {displaySymbol: null}
 			}
+			else if(action.value === 'displayHistory'){
+				CLEAR_SELECTED = {displayHistory: null}
+			}
 			else{
 				CLEAR_SELECTED = {displayValue: null, displaySymbol: null}
 			}

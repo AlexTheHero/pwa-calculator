@@ -1,6 +1,7 @@
 import CalculatorButton from "../Buttons/CalculatorButton/CalculatorButton";
 import React from "react";
 import "./_BasicBottomButtons.scss";
+import {calculatePercentage, removeSignedValue} from "../../config/utils/Utils";
 
 const onAddValue = (props, number) => {
 	if(number === 0 && props.displayValue === "0"){
@@ -9,7 +10,7 @@ const onAddValue = (props, number) => {
 	else if(number === 0 && props.displayHistory === null && props.displayValue !== null){
 		return;
 	}
-	else if(number !== 0 && props.displayValue === "0"){
+	else if(number !== 0 && props.displayValue === "0" && number !== "."){
 		props.clearDisplayValue("displayValue");
 		props.addValue(number);
 		return;
@@ -48,9 +49,21 @@ const onEqual = (props) => {
 };
 
 const onPercent = async (props) => {
+	if(props.displaySymbol !== null && props.displayHistory === null){
+		return;
+	}
 	if(props.displayValue === null){
 		return;
 	}
+	if(props.displaySymbol === null){
+		let newValue = removeSignedValue(props.displayValue);
+		let operatedPercent = calculatePercentage(Number(newValue));
+		props.clearData();
+		props.addHistory(`${props.displayValue}% = ${operatedPercent}`);
+		
+		return;
+	}
+	
 	props.addHistory(`${props.displayValue}%`);
 	props.clearDisplayValue('displayValue');
 };

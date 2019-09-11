@@ -1,11 +1,12 @@
-.Button{
+.layoutButton{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  width: 100%;
   height: 10%;
   background-color: IndianRed;
 }
 
-.Button:hover{
+.layoutButton:hover{
   background-color: limegreen;
 };
 
