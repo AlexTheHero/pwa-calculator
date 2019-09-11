@@ -59,7 +59,7 @@ const onPercent = async (props) => {
 		let newValue = removeSignedValue(props.displayValue);
 		let operatedPercent = calculatePercentage(Number(newValue));
 		props.clearData();
-		props.addHistory(`${props.displayValue}% = ${operatedPercent}`);
+		props.addHistory(`${newValue}% = ${operatedPercent}`);
 		
 		return;
 	}

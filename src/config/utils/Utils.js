@@ -3,8 +3,8 @@ export const calculatePercentage = (number, percentage = 1) => {
 };
 
 export const removeSignedValue = (value) => {
-	if(value.substring(1) === '-'){
-		return value.slice(2);
+	if(value[0] === '-'){
+		return value.substring(2);
 	}
 	
 	return value;
