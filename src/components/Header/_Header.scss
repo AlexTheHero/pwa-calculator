@@ -1,9 +1,31 @@
 .basicHeader{
-  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-.
+.headerMenuButtonContainer {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.headerMenuButton{
+  width: 60%;
+  height: 60%;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  background-color: lightgrey;
+  outline: 0;
+  border: none;
+}
+
+.headerMenuButton:hover{
+  background-color: IndianRed;
+}

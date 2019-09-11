@@ -1,5 +1,5 @@
 import React from 'react';
-import './CalculatorButton.scss';
+import './_CalculatorButton.scss';
 
 const CalculatorButton = ({handleClick, text, customStyle, isDisabled}) => {
 	const containerStyle = customStyle ? "ButtonStructure" : "DefaultButtonStructure";

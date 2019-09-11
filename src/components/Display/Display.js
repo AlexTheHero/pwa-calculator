@@ -1,5 +1,5 @@
 import React from "react";
-import "./Display.scss";
+import "./_Display.scss";
 
 const changeTextSize = (text) => {
 	let rightEm = 2.4 * (14 / text.length);
@@ -11,14 +11,15 @@ const changeTextSize = (text) => {
 };
 
 const Display = ({props}) => {
-	let textDisplay = props.displayValue ? props.displayValue : "0";
-	let symbolDisplay = props.displaySymbol ? props.displaySymbol : " ";
+	let textDisplay = props.displayValue ? props.displayValue : "";
+	let historyDisplay = props.displayHistory ? props.displayHistory : "";
+	let symbolDisplay = props.displaySymbol ? props.displaySymbol : "";
 	let fontSize = props.displayValue ? changeTextSize(props.displayValue) : '2.4em';
 	
 	return (
 		<div className="displayContainer">
 			<div className="displayTopContainer">
-				<p className="displayTopText">value</p>
+				<p className="displayTopText">{historyDisplay}</p>
 			</div>
 			<div className="displayMainTextContainer">
 				<div className="displayMainLeft">
@@ -29,7 +30,16 @@ const Display = ({props}) => {
 				</div>
 			</div>
 			<div className="displayBottomContainer">
-				<p>value</p>
+				<div className="displayBottomButtonsContainer">
+					<button className="displayCopyButton">
+						<p className="displayButtonsText">COPY</p>
+					</button>
+				</div>
+				<div className="displayBottomButtonsContainer">
+					<button className="displayReturnButton">
+						<p className="displayButtonsText"> "ICON_BACK" </p>
+					</button>
+				</div>
 			</div>
 		</div>
 	)

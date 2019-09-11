@@ -1,5 +1,5 @@
 import React from "react";
-import "./LayoutButton.scss"
+import "./_LayoutButton.scss"
 
 const LayoutButton = ({handleClick, text}) => {
 	const defaultText = text ? text : " ";

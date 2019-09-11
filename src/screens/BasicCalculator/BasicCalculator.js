@@ -2,7 +2,15 @@ import React, {Component} from 'react';
 import BasicBottomButtons from "../../components/BasicBottomButtons/BasicBottomButtons";
 import Header from "../../components/Header/Header";
 import Display from "../../components/Display/Display";
-import {addValue, addSymbol, clearData, makeSigned} from "../../config/actions/BasicActions";
+import {
+	addHistory,
+	addSymbol,
+	addValue,
+	clearData,
+	clearDisplayValue,
+	makeHistory,
+	makeSigned
+} from "../../config/actions/BasicActions";
 import {connect} from "react-redux";
 import MainLayout from "../../components/MainLayout/MainLayout"
 
@@ -15,7 +23,7 @@ class BasicCalculator extends Component {
 	render() {
 		return (
 			<MainLayout>
-				<Header/>
+				<Header backgroundColor={"whitesmoke"}/>
 				<Display props={this.props}/>
 				<BasicBottomButtons props={this.props}/>
 			</MainLayout>
@@ -27,7 +35,8 @@ const mapStateToProps = (state, ownProps) => {
 	addValue();
 	return {
 		displayValue: state.basic.displayValue,
-		displaySymbol: state.basic.displaySymbol
+		displaySymbol: state.basic.displaySymbol,
+		displayHistory: state.basic.displayHistory
 	}
 };
 
@@ -35,7 +44,10 @@ const mapDispatchToProps = {
 	addValue,
 	addSymbol,
 	makeSigned,
-	clearData
+	clearData,
+	makeHistory,
+	clearDisplayValue,
+	addHistory
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasicCalculator);
