@@ -5,7 +5,9 @@ const VALUES = {
 	SIGNED: "-",
 	UNSIGNED: "+",
 	SPACE: " ",
-	ADD_TO_HISTORY: ""
+	ADD_TO_HISTORY: "",
+	UPDATED_SYMBOL: "",
+	UPDATED_VALUE: ""
 };
 
 export default (state = initialState, action) => {
@@ -32,56 +34,62 @@ export default (state = initialState, action) => {
 		
 		case basic.DISPLAY_HISTORY:
 			VALUES.ADD_TO_HISTORY = '';
-			let UPDATED_VALUE = state.displayValue;
-			let updatedSymbol = state.displaySymbol;
+			VALUES.UPDATED_SYMBOL = state.displaySymbol;
+			VALUES.UPDATED_VALUE = state.displayValue;
 			
-			if(state.displayHistory !== null) {
+			if (state.displayHistory !== null) {
 				VALUES.ADD_TO_HISTORY += state.displayHistory + VALUES.SPACE;
 			}
-			if(state.displaySymbol !== null && state.displayHistory !== null) {
-				if(UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.SIGNED){
-					updatedSymbol = VALUES.UNSIGNED;
-					UPDATED_VALUE = state.displayValue.substring(2);
-				}
-				else if(UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.UNSIGNED){
-					updatedSymbol = "";
+			if (state.displaySymbol !== null && state.displayHistory !== null) {
+				if (VALUES.UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.SIGNED) {
+					VALUES.UPDATED_SYMBOL = VALUES.UNSIGNED;
+					VALUES.UPDATED_VALUE = state.displayValue.substring(2);
+				} else if (VALUES.UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.UNSIGNED) {
+					VALUES.UPDATED_SYMBOL = "";
 				}
 				
-				VALUES.ADD_TO_HISTORY += updatedSymbol + VALUES.SPACE;
+				VALUES.ADD_TO_HISTORY += VALUES.UPDATED_SYMBOL + VALUES.SPACE;
 			}
-			if(state.displaySymbol === null && state.displayHistory !== null){
+			if (state.displaySymbol === null && state.displayHistory !== null) {
 				VALUES.ADD_TO_HISTORY = "";
 			}
 			
-			VALUES.ADD_TO_HISTORY += UPDATED_VALUE + VALUES.SPACE;
+			VALUES.ADD_TO_HISTORY += VALUES.UPDATED_VALUE + VALUES.SPACE;
 			
 			return {...state, displayHistory: VALUES.ADD_TO_HISTORY};
-			
+		
 		case basic.ADD_HISTORY:
 			VALUES.ADD_TO_HISTORY = '';
-			if(state.displayHistory !== null){
+			VALUES.UPDATED_SYMBOL = state.displaySymbol;
+			VALUES.UPDATED_VALUE = action.value;
+			
+			if (state.displayHistory !== null) {
 				VALUES.ADD_TO_HISTORY = state.displayHistory + VALUES.SPACE;
 			}
-			if(state.displaySymbol !== null){
-				VALUES.ADD_TO_HISTORY += state.displaySymbol + VALUES.SPACE;
+			if (state.displaySymbol !== null) {
+				if (VALUES.UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.SIGNED) {
+					VALUES.UPDATED_SYMBOL = VALUES.UNSIGNED;
+					VALUES.UPDATED_VALUE = action.value.substring(2);
+				} else if (VALUES.UPDATED_VALUE[0] === VALUES.SIGNED && state.displaySymbol === VALUES.UNSIGNED) {
+					VALUES.UPDATED_SYMBOL = "";
+				}
+				
+				VALUES.ADD_TO_HISTORY += VALUES.UPDATED_SYMBOL + VALUES.SPACE;
 			}
 			
-			VALUES.ADD_TO_HISTORY += action.value;
+			VALUES.ADD_TO_HISTORY += VALUES.UPDATED_VALUE;
 			
 			return {...state, displayHistory: VALUES.ADD_TO_HISTORY};
 		
 		case basic.CLEAR_DISPLAY_VALUE:
 			let CLEAR_SELECTED = "";
-			if(action.value === 'displayValue'){
+			if (action.value === 'displayValue') {
 				CLEAR_SELECTED = {displayValue: null}
-			}
-			else if(action.value === 'displaySymbol'){
+			} else if (action.value === 'displaySymbol') {
 				CLEAR_SELECTED = {displaySymbol: null}
-			}
-			else if(action.value === 'displayHistory'){
+			} else if (action.value === 'displayHistory') {
 				CLEAR_SELECTED = {displayHistory: null}
-			}
-			else{
+			} else {
 				CLEAR_SELECTED = {displayValue: null, displaySymbol: null}
 			}
 			
@@ -89,7 +97,7 @@ export default (state = initialState, action) => {
 		
 		case basic.CLEAR_DATA:
 			return {...state, ...initialState};
-			
+		
 		default:
 			return state;
 	}

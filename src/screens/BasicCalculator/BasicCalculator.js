@@ -31,8 +31,7 @@ class BasicCalculator extends Component {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
-	addValue();
+const mapStateToProps = (state) => {
 	return {
 		displayValue: state.basic.displayValue,
 		displaySymbol: state.basic.displaySymbol,
