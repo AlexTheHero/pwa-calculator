@@ -1,9 +1,12 @@
 import CalculatorButton from "../Buttons/CalculatorButton/CalculatorButton";
 import React from "react";
 import "./_BasicBottomButtons.scss";
-import {calculatePercentage, removeSignedValue} from "../../config/utils/Utils";
+import {ARITHMETIC_SYMBOLS, calculatePercentage, calculateValues, removeSignedValue} from "../../config/utils/utils";
 
 const onAddValue = (props, number) => {
+	if(props.displayValue && props.displayValue.length > 10){
+		return;
+	}
 	if(number === 0 && props.displayValue === "0"){
 		return;
 	}
@@ -45,6 +48,20 @@ const onAddSymbol = (props, symbol) => {
 };
 
 const onEqual = (props) => {
+	if(props.displayHistory === null || props.displaySymbol === null)return;
+	if(!props.displayHistory.match(ARITHMETIC_SYMBOLS) && props.displayValue === null) return;
+	
+	const valuesToProcess = props.displayValue !== null ? props.displayHistory + props.displaySymbol + props.displayValue : props.displayHistory;
+	let calculatedValue = calculateValues(valuesToProcess);
+	
+	if(props.displayValue !== null){
+		props.addHistory(`${props.displayValue} = ${calculatedValue}`);
+	}
+	else {
+		props.clearDisplayValue();
+		props.addHistory(` = ${calculatedValue}`);
+	}
+	
 	props.clearDisplayValue();
 };
 

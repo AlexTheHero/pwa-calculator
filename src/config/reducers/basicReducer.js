@@ -83,6 +83,7 @@ export default (state = initialState, action) => {
 		
 		case basic.CLEAR_DISPLAY_VALUE:
 			let CLEAR_SELECTED = "";
+			
 			if (action.value === 'displayValue') {
 				CLEAR_SELECTED = {displayValue: null}
 			} else if (action.value === 'displaySymbol') {
