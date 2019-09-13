@@ -1,6 +1,6 @@
 {
   "name": "pwa-calculator",
-  "homepage": "http:///",
+  "homepage": "https://alex-seven-calculator.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
