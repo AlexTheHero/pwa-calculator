@@ -1,6 +1,6 @@
 {
   "name": "pwa-calculator",
-  "homepage": "/",
+  "homepage": "http:///",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,10 +13,11 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "express": "latest"
   },
   "scripts": {
-    "start": "cross-env PORT=7777 react-scripts start",
+    "start": "cross-env PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +40,19 @@
   "devDependencies": {
     "cross-env": "^5.2.1",
     "react-redux": "^7.1.1"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexTheHero/pwa-calculator.git"
+  },
+  "keywords": [
+    "pwa-calculator"
+  ],
+  "author": "alex-seven",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/AlexTheHero/pwa-calculator/issues"
   }
 }
