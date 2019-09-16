@@ -9,7 +9,8 @@ import {
 	clearData,
 	clearDisplayValue,
 	makeHistory,
-	makeSigned
+	makeSigned,
+	oneStepBackward
 } from "../../config/actions/BasicActions";
 import {connect} from "react-redux";
 import MainLayout from "../../components/MainLayout/MainLayout"
@@ -46,7 +47,8 @@ const mapDispatchToProps = {
 	clearData,
 	makeHistory,
 	clearDisplayValue,
-	addHistory
+	addHistory,
+	oneStepBackward
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasicCalculator);

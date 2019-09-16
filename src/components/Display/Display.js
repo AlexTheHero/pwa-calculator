@@ -37,7 +37,7 @@ const Display = ({props}) => {
 					</button>
 				</div>
 				<div className="displayBottomButtonsContainer">
-					<button className="displayReturnButton">
+					<button className="displayReturnButton" onClick={() => props.oneStepBackward()}>
 						{GLOBAL_ICONS.backSpace}
 					</button>
 				</div>

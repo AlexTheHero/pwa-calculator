@@ -81,6 +81,21 @@ export default (state = initialState, action) => {
 			
 			return {...state, displayHistory: VALUES.ADD_TO_HISTORY};
 		
+		case basic.STEP_BACKWARD:
+			VALUES.UPDATED_VALUE = state.displayValue;
+			
+			if (VALUES.UPDATED_VALUE !== null && VALUES.UPDATED_VALUE.length > 1) {
+				if (VALUES.UPDATED_VALUE.length === 3 && VALUES.UPDATED_VALUE.includes(VALUES.SIGNED)) {
+					VALUES.UPDATED_VALUE = null;
+				} else {
+					VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.slice(0, -1);
+				}
+			} else {
+				VALUES.UPDATED_VALUE = null;
+			}
+			
+			return {...state, displayValue: VALUES.UPDATED_VALUE};
+		
 		case basic.CLEAR_DISPLAY_VALUE:
 			let CLEAR_SELECTED = "";
 			

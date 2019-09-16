@@ -27,3 +27,7 @@ export const makeHistory = () => {
 export const addHistory = (value) => {
 	return (dispatch) => dispatch({type: basic.ADD_HISTORY, value})
 };
+
+export const oneStepBackward = () => {
+	return (dispatch) => dispatch({type: basic.STEP_BACKWARD})
+};
