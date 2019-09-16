@@ -1,0 +1,78 @@
+.DrawerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  height: 90%;
+  width: 25%;
+  border-radius: 12px;
+  position: absolute;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  @media (max-width: 780px) {
+  width: 60%;
+  }
+}
+
+.LeftSide {
+  height: 100%;
+  width: 80%;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+  background-color: rgba(212, 177,87, 0.83);
+}
+
+.RightSide {
+  height: 100%;
+  width: 20%;
+  background-color: transparent;
+}
+
+.CloseDrawerButton {
+  height: 100%;
+  width: 100%;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: transparent;
+  outline: 0;
+  border: none;
+}
+
+.DrawerButtonsContainer {
+  width: 100%;
+  margin-top: 20%;
+  height: 80%;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.DrawerButton {
+  margin-top: 5%;
+  height: 8%;
+  width: 60%;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.65);
+  outline: 0;
+  border: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.DrawerButton:hover{
+  background-color: blueviolet;
+};
+
+.DrawerButtonText {
+  font-family: "Fira Code Medium", sans-serif;
+  font-size: calc(10px + 50%);
+  color: whitesmoke;
+}
+
+.DrawerButtonText:hover{
+  color: black;
+}

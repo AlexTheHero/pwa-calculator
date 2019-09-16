@@ -52,7 +52,7 @@
   margin-left: 1%;
 }
 
-.displayMainLeft{
+.displayMainLeft {
   width: 15%;
   display: flex;
   align-content: center;
@@ -61,7 +61,7 @@
   justify-items: center;
 }
 
-.displayMainRight{
+.displayMainRight {
   white-space: normal;
   overflow: hidden;
   width: 85%;
@@ -75,7 +75,7 @@
 .displayCopyButton {
   width: 70%;
   height: 40%;
-  border-radius: 15px;
+  border-radius: 14px;
   outline: 0;
   border: none;
   background-color: lightgrey;
@@ -83,22 +83,23 @@
   transition-duration: 0.4s;
 }
 
-.displayCopyButton:hover{
+.displayCopyButton:hover {
   background-color: IndianRed;
   color: white;
 }
 
 .displayReturnButton {
   width: 50%;
-  border-radius: 15px;
+  height: 40%;
+  border-radius: 14px;
   outline: 0;
   border: none;
-  background-color: lightgrey;
+  background-color: transparent;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
 
-.displayReturnButton:hover{
+.displayReturnButton:hover {
   background-color: IndianRed;
   color: white;
 }
@@ -114,6 +115,7 @@
 
 .displayButtonsText {
   line-height: 0.4em;
+  font-weight: bold;
   font-size: 1.1em;
   font-family: "Fira Code Medium", sans-serif;
 }

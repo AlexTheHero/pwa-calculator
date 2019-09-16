@@ -8,6 +8,7 @@ const WelcomeScreen = ({history}) => {
 			<LayoutButton text={"Basic Calculator"} handleClick={() => history.push('/basic')}/>
 			<LayoutButton text={"Advanced Calculator"}/>
 			<LayoutButton text={"Material Calculator"}/>
+			<LayoutButton text={"Options"}/>
 		</MainLayout>
 	)
 };

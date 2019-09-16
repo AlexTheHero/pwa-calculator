@@ -1,4 +1,4 @@
-.DefaultButtonContainer{
+.DefaultButtonContainer {
   display: flex;
   height: 96%;
   background-color: transparent;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.DefaultButtonStructure{
+.DefaultButtonStructure {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   background-color: transparent;
@@ -23,12 +23,12 @@
   justify-items: center;
 }
 
-.DefaultButtonStructure:hover{
+.DefaultButtonStructure:hover {
   background-color: IndianRed;
   color: white;
 }
 
-.ButtonStructure{
+.ButtonStructure {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   background-color: whitesmoke;
@@ -41,12 +41,12 @@
   justify-items: center;
 }
 
-.ButtonStructure:hover{
+.ButtonStructure:hover {
   background-color: IndianRed;
   color: white;
 }
 
-.textStyle{
+.textStyle {
   font-size: 2em;
   align-self: center;
   font-family: Feather, serif;

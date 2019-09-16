@@ -23,7 +23,7 @@ class BasicCalculator extends Component {
 	render() {
 		return (
 			<MainLayout>
-				<Header backgroundColor={"whitesmoke"}/>
+				<Header backgroundColor={"whitesmoke"} routes={this.props.history}/>
 				<Display props={this.props}/>
 				<BasicBottomButtons props={this.props}/>
 			</MainLayout>

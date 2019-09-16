@@ -1,5 +1,6 @@
 import React from "react";
 import "./_Display.scss";
+import {GLOBAL_ICONS} from "../../config/constants/globals";
 
 const changeTextSize = (text) => {
 	let rightEm = 2.4 * (14 / text.length);
@@ -37,7 +38,7 @@ const Display = ({props}) => {
 				</div>
 				<div className="displayBottomButtonsContainer">
 					<button className="displayReturnButton">
-						<p className="displayButtonsText"> "ICON_BACK" </p>
+						{GLOBAL_ICONS.backSpace}
 					</button>
 				</div>
 			</div>
