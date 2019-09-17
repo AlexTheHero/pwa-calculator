@@ -4,10 +4,12 @@ const VALUES = {
 	DOT: ".",
 	SIGNED: "-",
 	UNSIGNED: "+",
+	MULTIPLY: 'x',
+	DIVIDE: String.fromCharCode(247),
 	SPACE: " ",
 	ADD_TO_HISTORY: "",
 	UPDATED_SYMBOL: "",
-	UPDATED_VALUE: ""
+	UPDATED_VALUE: "",
 };
 
 export default (state = initialState, action) => {
@@ -21,12 +23,24 @@ export default (state = initialState, action) => {
 		case basic.MAKE_SIGNED_VALUE:
 			if (state.displayValue === null) return {...state};
 			let makeSignedValue = "";
+			let DISPLAY_VALUE = state.displayValue;
+			let DISPLAY_SYMBOL = state.displaySymbol;
+			let CHECK_DISPLAYED_VALUE = DISPLAY_VALUE[0] === '(' || DISPLAY_VALUE[0] === '-';
 			
-			if (state.displayValue[0] !== VALUES.SIGNED) {
-				makeSignedValue = `${VALUES.SIGNED} ` + state.displayValue;
+			if (!CHECK_DISPLAYED_VALUE) {
+				if (DISPLAY_SYMBOL === VALUES.MULTIPLY || DISPLAY_SYMBOL === VALUES.DIVIDE) {
+					makeSignedValue = `(${VALUES.SIGNED} ` + state.displayValue + ')';
+				} else {
+					makeSignedValue = `${VALUES.SIGNED} ` + state.displayValue;
+				}
 			} else {
-				makeSignedValue = state.displayValue.slice(2);
+				if (DISPLAY_SYMBOL === VALUES.MULTIPLY || DISPLAY_SYMBOL === VALUES.DIVIDE) {
+					makeSignedValue = state.displayValue.slice(3, -1);
+				} else {
+					makeSignedValue = state.displayValue.slice(2);
+				}
 			}
+			
 			return {...state, displayValue: makeSignedValue};
 		
 		case basic.ADD_SYMBOL:
@@ -85,9 +99,10 @@ export default (state = initialState, action) => {
 			VALUES.UPDATED_VALUE = state.displayValue;
 			
 			if (VALUES.UPDATED_VALUE !== null && VALUES.UPDATED_VALUE.length > 1) {
-				if (VALUES.UPDATED_VALUE.length === 3 && VALUES.UPDATED_VALUE.includes(VALUES.SIGNED)) {
-					VALUES.UPDATED_VALUE = null;
-				} else {
+				if (VALUES.UPDATED_VALUE.length > 2 && VALUES.UPDATED_VALUE.includes(VALUES.SIGNED)) {
+					VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.slice(3, -1);
+				}
+				else {
 					VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.slice(0, -1);
 				}
 			} else {

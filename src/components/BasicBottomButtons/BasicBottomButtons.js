@@ -39,11 +39,35 @@ const onAddSymbol = (props, symbol) => {
 	props.addSymbol(symbol);
 };
 
+const handleSignedValues = (props) => {
+	let checkedValues = '';
+	
+	if (props.displaySymbol === '-') {
+		if (props.displayValue[0] === '-') {
+			checkedValues = props.displayHistory + " + " + props.displayValue.slice(2);
+		} else {
+			checkedValues = props.displayHistory + " - " + props.displayValue;
+		}
+	} else if (props.displaySymbol === '+') {
+		if (props.displayValue[0] === '-') {
+			checkedValues = props.displayHistory + props.displayValue;
+		} else {
+			checkedValues = props.displayHistory + props.displaySymbol + ' ' + props.displayValue;
+		}
+	} else {
+		checkedValues = props.displayHistory + props.displaySymbol + ' ' + props.displayValue;
+	}
+	
+	return checkedValues;
+};
+
 const onEqual = (props) => {
 	if (props.displayHistory === null || props.displaySymbol === null) return;
-	if (!props.displayHistory.match(ARITHMETIC_SYMBOLS) && props.displayValue === null) return;
+	// console.log(!props.displayHistory.match(ARITHMETIC_SYMBOLS))
+	//TODO: FIX FUNCTIONAL CHECKING
+	if (props.displayValue === null && !props.displayHistory.match(ARITHMETIC_SYMBOLS)) return;
 	
-	const valuesToProcess = props.displayValue !== null ? props.displayHistory + props.displaySymbol + ' ' + props.displayValue : props.displayHistory;
+	const valuesToProcess = props.displayValue !== null ? handleSignedValues(props) : props.displayHistory;
 	let calculatedValue = calculateValues(valuesToProcess);
 	
 	if (props.displayValue !== null) {
@@ -86,7 +110,7 @@ const BasicBottomButtons = ({props}) => {
 				<CalculatorButton handleClick={() => props.clearData()} text={GLOBAL_ICONS.delete}/>
 				<CalculatorButton handleClick={() => props.makeSigned()} text={isSigned}/>
 				<CalculatorButton handleClick={() => onPercent(props)} text={GLOBAL_ICONS.percentage}/>
-				<CalculatorButton handleClick={() => onAddSymbol(props, "/")} text={GLOBAL_ICONS.divide}/>
+				<CalculatorButton handleClick={() => onAddSymbol(props, String.fromCharCode(247))} text={GLOBAL_ICONS.divide}/>
 			</div>
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 7)} text={"7"}/>
