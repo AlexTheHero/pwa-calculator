@@ -1,3 +1,5 @@
+@import "../../../config/utils/respond-to";
+
 .DefaultButtonContainer {
   display: flex;
   height: 96%;
@@ -51,4 +53,6 @@
   align-self: center;
   font-family: Feather, serif;
   line-height: 0.4em;
+  @include respond-to(minimum-screens) {font-size: calc(12px + 40%); line-height: 1em;};
+  @include respond-to(medium-screens) {font-size: calc(12px + 70%); line-height: 1em;};
 }

@@ -1,3 +1,30 @@
+$min-phone: 320px;
+$phone: 600px;
+$tablet-portrait: 900px;
+$tablet-landscape: 1200px;
+$default: 1800px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $min-phone) {@content}
+  }
+  @else if $media == minimum-screens {
+    @media only screen and (min-width: $min-phone) and (max-width: $phone) {@content}
+  }
+  @else if $media == phone-screens {
+    @media only screen and (min-width: $phone) and (max-width: $tablet-portrait) {@content}
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $tablet-portrait) and (max-width: $tablet-landscape) {@content}
+  }
+  @else if $media == standart-screens {
+    @media only screen and (min-width: $tablet-landscape) and (max-width: $default) {@content}
+  }
+  @else if $media == big-desktop {
+    @media only screen and (min-width: $default) {@content}
+  }
+}
+
 .DrawerContainer {
   display: flex;
   flex-direction: row;
@@ -12,9 +39,12 @@
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 
-  @media (max-width: 780px) {
-  width: 60%;
-  }
+  @include respond-to(handhelds) {width: 100%};
+  @include respond-to(minimum-screens) {width: 85%; height: 95%};
+  @include respond-to(phone-screens) {width: 60%;};
+  @include respond-to(medium-screens) {width:60%; height: 85%;};
+  @include respond-to(standart-screens) {width: 30%};
+  @include respond-to(big-desktop) {width: 25%};
 }
 
 .LeftSide {
@@ -71,6 +101,7 @@
   font-family: "Fira Code Medium", sans-serif;
   font-size: calc(10px + 50%);
   color: whitesmoke;
+  @include respond-to(minimum-screens) {font-size: calc(10px + 20%);};
 }
 
 .DrawerButtonText:hover{

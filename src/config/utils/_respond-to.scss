@@ -1,0 +1,26 @@
+$min-phone: 320px;
+$phone: 600px;
+$tablet-portrait: 900px;
+$tablet-landscape: 1200px;
+$default: 1800px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $min-phone) {@content}
+  }
+  @else if $media == minimum-screens {
+    @media only screen and (min-width: $min-phone) and (max-width: $phone) {@content}
+  }
+  @else if $media == phone-screens {
+    @media only screen and (min-width: $phone) and (max-width: $tablet-portrait) {@content}
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $tablet-portrait) and (max-width: $tablet-landscape) {@content}
+  }
+  @else if $media == standart-screens {
+    @media only screen and (min-width: $tablet-landscape) and (max-width: $default) {@content}
+  }
+  @else if $media == big-desktop {
+    @media only screen and (min-width: $default) {@content}
+  }
+}

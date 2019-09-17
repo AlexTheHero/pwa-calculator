@@ -1,3 +1,5 @@
+@import "../../config/utils/respond-to";
+
 .Container {
   display: flex;
   background-color: white;
@@ -9,8 +11,10 @@
   height: 90%;
   width: 25%;
   border-radius: 12px;
-
-  @media (max-width: 780px) {
-    width: 60%;
-  }
+  @include respond-to(handhelds) {width: 100%};
+  @include respond-to(minimum-screens) {width: 85%; height: 95%};
+  @include respond-to(phone-screens) {width: 60%; margin-left: 7%};
+  @include respond-to(medium-screens) {width:60%; height: 85%; margin-right: 7%; margin-bottom: 5%};
+  @include respond-to(standart-screens) {width: 30%};
+  @include respond-to(big-desktop) {width: 25%};
 }
