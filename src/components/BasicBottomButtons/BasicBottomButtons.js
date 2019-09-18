@@ -63,8 +63,6 @@ const handleSignedValues = (props) => {
 
 const onEqual = (props) => {
 	if (props.displayHistory === null || props.displaySymbol === null) return;
-	// console.log(!props.displayHistory.match(ARITHMETIC_SYMBOLS))
-	//TODO: FIX FUNCTIONAL CHECKING
 	if (props.displayValue === null && !props.displayHistory.match(ARITHMETIC_SYMBOLS)) return;
 	
 	const valuesToProcess = props.displayValue !== null ? handleSignedValues(props) : props.displayHistory;
@@ -93,6 +91,11 @@ const onPercent = async (props) => {
 		props.clearData();
 		props.addHistory(`${newValue}% = ${operatedPercent}`);
 		
+		return;
+	}
+	if(props.displayValue.includes('(')){
+		props.addHistory(`${props.displayValue.replace(')', '%)')}`);
+		props.clearDisplayValue('displayValue');
 		return;
 	}
 	

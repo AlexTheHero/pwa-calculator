@@ -6,7 +6,7 @@ import {GLOBAL_PATHS} from "../../config/constants/globals";
 const Drawer = ({closeDrawer, routes}) => {
 	const currentLocation = routes.location.pathname;
 	const handleNavigation = (path) => {
-		routes.replace(path)
+		routes.push(path)
 	};
 	
 	return (
