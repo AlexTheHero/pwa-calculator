@@ -2,7 +2,16 @@ export const ARITHMETIC_SYMBOLS = /([-x+÷])/g;
 const parentheses = '(';
 
 export const calculatePercentage = (number, percentage = 1) => {
-	return (number / 100 * percentage)
+	let value = number / 100 * percentage;
+	
+	if (isNaN(number) || isNaN(percentage)) {
+		return false;
+	}
+	if (isNaN(value)) {
+		return 0;
+	}
+	
+	return value;
 };
 
 export const removeSignedValue = (value) => {
@@ -15,9 +24,22 @@ export const removeSignedValue = (value) => {
 
 export const resolvePercentageFromString = (values) => {
 	let newValues = [];
+	
 	for (let i = 0; i < values.length; i++) {
 		if (values[i].includes('%')) {
-			newValues.push(calculatePercentage(Number(values[i - 2]), Number(values[i].replace('%', ''))).toString());
+			if (i > 3 && (values[i - 2].includes('%') || values[i - 3].includes('%'))) {
+				if (values[i - 3].includes('%')) {
+					newValues.push(calculatePercentage(Number(newValues[newValues.length - 3]), Number(values[i].replace('%)', ''))).toString())
+				} else {
+					newValues.push(calculatePercentage(Number(newValues[newValues.length - 2]), Number(values[i].replace('%', ''))).toString())
+				}
+			} else {
+				if (values[i - 1].includes('(')) {
+					newValues.push(calculatePercentage(Number(values[i - 3]), Number(values[i].replace('%)', ''))).toString());
+				} else {
+					newValues.push(calculatePercentage(Number(values[i - 2]), Number(values[i].replace('%', ''))).toString());
+				}
+			}
 		} else {
 			newValues.push(values[i]);
 		}
@@ -27,68 +49,37 @@ export const resolvePercentageFromString = (values) => {
 };
 
 export const resolveMultiplicationFromString = (values) => {
+	console.log(values)
+	if (!values.includes('÷') && !values.includes('x')) {
+		return values;
+	}
+	
 	let newValues = [];
 	let i = 0;
 	
 	while (i < values.length) {
 		if (values[i + 1] === String.fromCharCode(247)) {
-			if (values[i + 2].includes(parentheses)) {
-				if (values[i - 1] === '-') {
-					if (values[i + 2].includes('-')) {
-						newValues.pop();
-						newValues.push('+');
-						newValues.push(Number(values[i] / Number(values[i + 3].replace(')', ''))).toString());
-						i += 1;
-					}
-				} else {
-					if (values[i + 2].includes('-')) {
-						newValues.pop();
-						newValues.push('-');
-						newValues.push(Number(values[i] / Number(values[i + 3].replace(')', ''))).toString());
-						i += 1;
-					}
-				}
-			} else {
-				newValues.push(Number(values[i] / Number(values[i + 2])).toString());
-			}
-			
-			i += 2;
+			console.log('ok');
 		} else if (values[i + 1] === 'x') {
-			if (values[i + 2].includes(parentheses)) {
-				if (values[i - 1] === '-') {
-					if (values[i + 2].includes('-')) {
-						newValues.pop();
-						newValues.push('+');
-						newValues.push(Number(values[i] * Number(values[i + 3].replace(')', ''))).toString());
-						i += 1;
-					}
-				} else {
-					if (values[i + 2].includes('-')) {
-						newValues.pop();
-						newValues.push('-');
-						newValues.push(Number(values[i] * Number(values[i + 3].replace(')', ''))).toString());
-						i += 1;
-					}
-				}
+			if (values[i + 2].includes('-')) {
+				newValues.push('-');
+				newValues.push((Number(values[i]) * Number(values[i + 3].replace(')', ''))).toString());
+				i += 3;
 			} else {
-				newValues.push(Number(values[i] * Number(values[i + 2])).toString());
+				newValues.push((Number(values[i]) * Number(values[i + 2])).toString());
+				i += 2;
 			}
-			
-			i += 2;
 		} else {
 			newValues.push(values[i]);
 		}
 		i++;
 	}
 	
-	if (values.length === newValues.length) {
-		return newValues;
-	}
-	
 	return resolveMultiplicationFromString(newValues);
 };
 
 export const resolveAdditionFromString = (values) => {
+	console.log(values)
 	let sum = values.length > 0 && !isNaN(values[0]) ? Number(values[0]) : 0;
 	
 	let i = 0;

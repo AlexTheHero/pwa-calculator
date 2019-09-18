@@ -28,15 +28,25 @@ const onAddValue = (props, number) => {
 };
 
 const onAddSymbol = (props, symbol) => {
-	if (props.displayValue === null) return;
-	if (props.displaySymbol !== null && props.displayHistory !== null) {
-		props.makeHistory();
-		props.clearDisplayValue();
-	} else {
-		props.makeHistory();
-		props.clearDisplayValue();
+	if (props.displayHistory !== null && props.displayHistory.includes('=')) {
+		if (props.displayValue !== null) {
+			props.clearDisplayValue('displayHistory');
+			props.makeHistory();
+			props.clearDisplayValue('displayValue');
+			props.addSymbol(symbol);
+		}
+		return;
+	} else if (props.displayHistory !== null && props.displayValue === null) {
+		if (props.displayHistory.length > 1) {
+			props.addSymbol(symbol);
+		}
+		return;
+	} else if (props.displayHistory === null && props.displayValue === null) {
+		return;
 	}
 	
+	props.makeHistory();
+	props.clearDisplayValue();
 	props.addSymbol(symbol);
 };
 
@@ -94,13 +104,13 @@ const onPercent = async (props) => {
 		
 		return;
 	}
-	if(props.displayValue.includes('(')){
-		props.addHistory(`${props.displayValue.replace(')', '%)')}`);
+	if (props.displayValue.includes('(')) {
+		props.addHistory(`${props.displayValue.replace(')', '%) ')}`);
 		props.clearDisplayValue('displayValue');
 		return;
 	}
 	
-	props.addHistory(`${props.displayValue}%`);
+	props.addHistory(`${props.displayValue}% `);
 	props.clearDisplayValue('displayValue');
 };
 
