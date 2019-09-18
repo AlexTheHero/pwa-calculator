@@ -15,9 +15,19 @@ const VALUES = {
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case basic.ADD_VALUE:
+			VALUES.UPDATED_VALUE = state.displayValue;
+			
+			if (VALUES.UPDATED_VALUE !== null && VALUES.UPDATED_VALUE.includes(')')) {
+				VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.replace(')', `${action.value.toString()})`);
+			} else if (VALUES.UPDATED_VALUE !== null) {
+				VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE + action.value.toString();
+			} else {
+				VALUES.UPDATED_VALUE = action.value.toString();
+			}
+			
 			return {
 				...state,
-				displayValue: state.displayValue !== null ? state.displayValue + action.value.toString() : action.value.toString()
+				displayValue: VALUES.UPDATED_VALUE
 			};
 		
 		case basic.MAKE_SIGNED_VALUE:
@@ -101,8 +111,7 @@ export default (state = initialState, action) => {
 			if (VALUES.UPDATED_VALUE !== null && VALUES.UPDATED_VALUE.length > 1) {
 				if (VALUES.UPDATED_VALUE.length > 2 && VALUES.UPDATED_VALUE.includes(VALUES.SIGNED)) {
 					VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.slice(3, -1);
-				}
-				else {
+				} else {
 					VALUES.UPDATED_VALUE = VALUES.UPDATED_VALUE.slice(0, -1);
 				}
 			} else {

@@ -37,14 +37,14 @@ export const resolveMultiplicationFromString = (values) => {
 					if (values[i + 2].includes('-')) {
 						newValues.pop();
 						newValues.push('+');
-						newValues.push(Number(values[i] / Number(values[i + 3].slice(0, 1))).toString());
+						newValues.push(Number(values[i] / Number(values[i + 3].replace(')', ''))).toString());
 						i += 1;
 					}
 				} else {
 					if (values[i + 2].includes('-')) {
 						newValues.pop();
 						newValues.push('-');
-						newValues.push(Number(values[i] / Number(values[i + 3].slice(0, 1))).toString());
+						newValues.push(Number(values[i] / Number(values[i + 3].replace(')', ''))).toString());
 						i += 1;
 					}
 				}
@@ -59,14 +59,14 @@ export const resolveMultiplicationFromString = (values) => {
 					if (values[i + 2].includes('-')) {
 						newValues.pop();
 						newValues.push('+');
-						newValues.push(Number(values[i] * Number(values[i + 3].slice(0, 1))).toString());
+						newValues.push(Number(values[i] * Number(values[i + 3].replace(')', ''))).toString());
 						i += 1;
 					}
 				} else {
 					if (values[i + 2].includes('-')) {
 						newValues.pop();
 						newValues.push('-');
-						newValues.push(Number(values[i] * Number(values[i + 3].slice(0, 1))).toString());
+						newValues.push(Number(values[i] * Number(values[i + 3].replace(')', ''))).toString());
 						i += 1;
 					}
 				}

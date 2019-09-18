@@ -10,7 +10,8 @@ const onAddValue = (props, number) => {
 	}
 	if (number === 0 && props.displayValue === "0") {
 		return;
-	} else if (number === 0 && props.displayHistory === null && props.displayValue !== null) {
+	} else if (number === 0 && props.displayHistory === null && props.displayValue === null) {
+		props.addValue(number);
 		return;
 	} else if (number !== 0 && props.displayValue === "0" && number !== ".") {
 		props.clearDisplayValue("displayValue");
