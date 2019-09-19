@@ -1,7 +1,7 @@
 import React from 'react';
 import './_CalculatorButton.scss';
 
-const CalculatorButton = ({handleClick, text, customStyle, isDisabled}) => {
+const CalculatorButton = ({handleClick, text, customStyle, isDisabled, noTextStyle}) => {
 	const containerStyle = customStyle ? "ButtonStructure" : "DefaultButtonStructure";
 	const defaultText = text || "CalculatorButton Text Info";
 	
@@ -11,7 +11,7 @@ const CalculatorButton = ({handleClick, text, customStyle, isDisabled}) => {
 			:
 			<button className="DefaultButtonContainer" onClick={handleClick}>
 				<div className={containerStyle}>
-					<p className="textStyle">{defaultText}</p>
+					<p className={!noTextStyle && "textStyle"}>{defaultText}</p>
 				</div>
 			</button>
 	)

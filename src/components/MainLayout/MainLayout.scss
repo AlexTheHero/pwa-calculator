@@ -12,7 +12,7 @@
   width: 25%;
   border-radius: 12px;
   @include respond-to(handhelds) {width: 100%};
-  @include respond-to(minimum-screens) {width: 85%; height: 95%};
+  @include respond-to(minimum-screens) {width: 85%; height: 95%; padding-left: 0};
   @include respond-to(phone-screens) {width: 60%; margin-left: 7%};
   @include respond-to(medium-screens) {width:60%; height: 85%; margin-right: 7%; margin-bottom: 5%};
   @include respond-to(standart-screens) {width: 30%};

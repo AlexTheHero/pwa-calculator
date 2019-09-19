@@ -79,6 +79,7 @@
   height: 40%;
   border-radius: 14px;
   outline: 0;
+  display: flex;
   border: none;
   background-color: lightgrey;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -96,6 +97,9 @@
   border-radius: 14px;
   outline: 0;
   border: none;
+  display: flex;
+  text-align: center;
+  justify-content: center;
   background-color: transparent;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -104,6 +108,10 @@
 .displayReturnButton:hover {
   background-color: IndianRed;
   color: white;
+}
+
+.displayReturnIconButton {
+  text-align: center;
 }
 
 .displayBottomButtonsContainer {
@@ -116,11 +124,12 @@
 }
 
 .displayButtonsText {
-  line-height: 0.4em;
+  text-align: center;
+  margin: auto;
   font-weight: bold;
   font-size: 1.1em;
   font-family: "Fira Code Medium", sans-serif;
-  @include respond-to(minimum-screens) {font-size: 0.9em; line-height: 0;};
+  @include respond-to(minimum-screens) {font-size: 0.9em;};
   @include respond-to(phone-screens) {font-size: 1.1em};
-  @include respond-to(medium-screens) {font-size: 1.4em; line-height: 0; };
+  @include respond-to(medium-screens) {font-size: 1.4em;};
 }

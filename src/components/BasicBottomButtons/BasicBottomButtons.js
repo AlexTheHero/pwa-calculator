@@ -121,34 +121,37 @@ const BasicBottomButtons = ({props}) => {
 	return (
 		<div className="bottomContainer">
 			<div className="row">
-				<CalculatorButton handleClick={() => props.clearData()} text={GLOBAL_ICONS.delete}/>
-				<CalculatorButton handleClick={() => props.makeSigned()} text={isSigned}/>
-				<CalculatorButton handleClick={() => onPercent(props)} text={GLOBAL_ICONS.percentage}/>
-				<CalculatorButton handleClick={() => onAddSymbol(props, String.fromCharCode(247))} text={GLOBAL_ICONS.divide}/>
+				<CalculatorButton handleClick={() => props.clearData()} text={GLOBAL_ICONS.delete} noTextStyle/>
+				<CalculatorButton handleClick={() => props.makeSigned()} text={isSigned} noTextStyle/>
+				<CalculatorButton handleClick={() => onPercent(props)} text={GLOBAL_ICONS.percentage} noTextStyle/>
+				<CalculatorButton handleClick={() => onAddSymbol(props, String.fromCharCode(247))} text={GLOBAL_ICONS.divide}
+				                  noTextStyle/>
 			</div>
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 7)} text={"7"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 8)} text={"8"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 9)} text={"9"}/>
-				<CalculatorButton handleClick={() => onAddSymbol(props, "x")} text={GLOBAL_ICONS.multiply} customStyle/>
+				<CalculatorButton handleClick={() => onAddSymbol(props, "x")} text={GLOBAL_ICONS.multiply} customStyle
+				                  noTextStyle/>
 			</div>
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 4)} text={"4"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 5)} text={"5"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 6)} text={"6"}/>
-				<CalculatorButton handleClick={() => onAddSymbol(props, "-")} text={GLOBAL_ICONS.minus} customStyle/>
+				<CalculatorButton handleClick={() => onAddSymbol(props, "-")} text={GLOBAL_ICONS.minus} customStyle
+				                  noTextStyle/>
 			</div>
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 1)} text={"1"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 2)} text={"2"}/>
 				<CalculatorButton handleClick={() => onAddValue(props, 3)} text={"3"}/>
-				<CalculatorButton handleClick={() => onAddSymbol(props, "+")} text={GLOBAL_ICONS.plus} customStyle/>
+				<CalculatorButton handleClick={() => onAddSymbol(props, "+")} text={GLOBAL_ICONS.plus} customStyle noTextStyle/>
 			</div>
 			<div className="row">
 				<CalculatorButton handleClick={() => onAddValue(props, 0)} text={"0"}/>
 				<CalculatorButton isDisabled/>
 				<CalculatorButton handleClick={() => onAddValue(props, ".")} text={","}/>
-				<CalculatorButton handleClick={() => onEqual(props)} text={GLOBAL_ICONS.equal} customStyle/>
+				<CalculatorButton handleClick={() => onEqual(props)} text={GLOBAL_ICONS.equal} customStyle noTextStyle/>
 			</div>
 		</div>
 	)

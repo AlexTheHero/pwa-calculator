@@ -18,7 +18,8 @@
   background-color: transparent;
   width: 7vh;
   height: 7vh;
-  border-radius: 30px;
+  display: flex;
+  border-radius: 220px;
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -36,7 +37,8 @@
   background-color: whitesmoke;
   width: 7vh;
   height: 7vh;
-  border-radius: 30px;
+  display: flex;
+  border-radius: 220px;
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -50,9 +52,14 @@
 
 .textStyle {
   font-size: 2em;
-  align-self: center;
+  margin: auto;
+  text-align: center;
   font-family: Feather, serif;
-  line-height: 0.4em;
-  @include respond-to(minimum-screens) {font-size: calc(12px + 40%); line-height: 1em;};
-  @include respond-to(medium-screens) {font-size: calc(12px + 70%); line-height: 1em;};
+  @include respond-to(handhelds) {font-size: 2em;};
+  @include respond-to(minimum-screens) {font-size: 2.2em;};
+  @include respond-to(phone-screens) {font-size: 2.4em;};
+  @include respond-to(medium-screens) {font-size: 2.6em;};
+  @include respond-to(standart-screens) {font-size: 2.8em;};
+  @include respond-to(big-desktop) {font-size: 2.3em;};
+;
 }
