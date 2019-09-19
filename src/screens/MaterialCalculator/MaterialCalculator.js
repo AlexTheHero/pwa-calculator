@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import './_AdvancedCalculator.scss';
 import LayoutButton from "../../components/Buttons/LayoutButton/LayoutButton";
 
-export default class AdvancedCalculator extends Component {
+export default class MaterialCalculator extends Component {
 	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props);
