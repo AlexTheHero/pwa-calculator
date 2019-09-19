@@ -1,9 +1,9 @@
 const CACHE_NAME = 'PWA-Calculator';
-const assetToCache = [
-	'/index.html',
-	'/manifest.json',
+const urlsToCache = [
+	'index.html',
 	'/',
-	'../src/index.js'
+	'/basic',
+	'/advanced'
 ];
 
 // Install a service worker
@@ -14,7 +14,7 @@ self.addEventListener('install', event => {
 		caches.open(CACHE_NAME)
 			.then(function(cache) {
 				console.log('Opened cache');
-				return cache.addAll(assetToCache);
+				return cache.addAll(urlsToCache);
 			})
 	);
 });
