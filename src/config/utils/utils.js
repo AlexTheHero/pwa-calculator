@@ -1,4 +1,4 @@
-export const ARITHMETIC_SYMBOLS = /([-x+÷])/g;
+export const ARITHMETIC_SYMBOLS = /([-/x+÷*])/g;
 
 export const calculatePercentage = (number, percentage = 1) => {
 	let value = number / 100 * percentage;

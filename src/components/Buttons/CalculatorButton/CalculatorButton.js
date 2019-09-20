@@ -11,7 +11,7 @@ const CalculatorButton = ({handleClick, text, customStyle, isDisabled, noTextSty
 			:
 			<button className="DefaultButtonContainer" onClick={handleClick}>
 				<div className={containerStyle}>
-					<p className={!noTextStyle && "textStyle"}>{defaultText}</p>
+					<p className={noTextStyle ? "false" : "textStyle"}>{defaultText}</p>
 				</div>
 			</button>
 	)

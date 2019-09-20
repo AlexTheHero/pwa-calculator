@@ -3,7 +3,8 @@ const urlsToCache = [
 	'index.html',
 	'/',
 	'/basic',
-	'/advanced'
+	'/advanced',
+	'/material'
 ];
 
 // Install a service worker
