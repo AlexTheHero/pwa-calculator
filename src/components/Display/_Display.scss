@@ -31,17 +31,21 @@
   color: darkgrey;
   margin-left: 1em;
   @include respond-to(minimum-screens) {font-size: 1em;};
-  @include respond-to(phone-screens) {font-size: 1.2em};
-  @include respond-to(medium-screens) {font-size: 1.3em;};
+  @include respond-to(phone-screens) {font-size: 1.1em};
+  @include respond-to(medium-screens) {font-size: 1.2em;};
+  @include respond-to(standart-screens) {font-size: 1.3em;};
+  @include respond-to(big-desktop) {font-size: 1.3em;};
 }
 
 .displayTopText em {
   font-size: 0.9em;
   color: mediumslateblue;
   margin-right: 1vw;
-  @include respond-to(minimum-screens) {font-size: 1em;};
+  @include respond-to(minimum-screens) {font-size: 1.1em;};
   @include respond-to(phone-screens) {font-size: 1.2em};
-  @include respond-to(medium-screens) {font-size: 1.3em;};
+  @include respond-to(medium-screens) {font-size: 1.2em;};
+  @include respond-to(standart-screens) {font-size: 1.3em;};
+  @include respond-to(big-desktop) {font-size: 1.3em;};
 }
 
 .displayMainTextContainer {
