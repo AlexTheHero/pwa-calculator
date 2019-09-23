@@ -12,9 +12,10 @@
   height: 30%;
   width: 100%;
   background-color: whitesmoke;
-  align-items: flex-end;
-  justify-content: flex-end;
   align-content: flex-end;
+  justify-items: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
   display: flex;
 }
 
@@ -26,10 +27,21 @@
 }
 
 .displayTopText {
-  margin-left: 1em;
   font-size: 0.9em;
-  color: gray;
+  color: darkgrey;
+  margin-left: 1em;
+  @include respond-to(minimum-screens) {font-size: 1em;};
+  @include respond-to(phone-screens) {font-size: 1.2em};
+  @include respond-to(medium-screens) {font-size: 1.3em;};
+}
+
+.displayTopText em {
+  font-size: 0.9em;
+  color: mediumslateblue;
   margin-right: 1vw;
+  @include respond-to(minimum-screens) {font-size: 1em;};
+  @include respond-to(phone-screens) {font-size: 1.2em};
+  @include respond-to(medium-screens) {font-size: 1.3em;};
 }
 
 .displayMainTextContainer {
@@ -132,4 +144,18 @@
   @include respond-to(minimum-screens) {font-size: 0.9em;};
   @include respond-to(phone-screens) {font-size: 1.1em};
   @include respond-to(medium-screens) {font-size: 1.4em;};
+}
+
+.displayCopyPopup {
+  align-self: center;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "Fira Code Medium", sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+  color: indianred;
+  position: absolute;
+  @include respond-to(minimum-screens) {font-size: 1.3em;};
+  @include respond-to(phone-screens) {font-size: 1.4em};
+  @include respond-to(medium-screens) {font-size: 1.5em;};
 }

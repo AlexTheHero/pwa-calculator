@@ -17,9 +17,12 @@ import MainLayout from "../../components/MainLayout/MainLayout";
 import {ARITHMETIC_SYMBOLS, calculatePercentage, calculateValues, removeSignedValue} from "../../config/utils/utils";
 
 class BasicCalculator extends Component {
-	// eslint-disable-next-line no-useless-constructor
 	constructor(props) {
 		super(props);
+		this.state = {
+			copied: false,
+			result: false
+		}
 	}
 	
 	componentDidMount() {
@@ -41,13 +44,46 @@ class BasicCalculator extends Component {
 				this.onAddSymbol('x');
 				return;
 			}
-			
 			this.onAddSymbol(value);
 		} else if (value === '=') {
 			this.onEqual();
 		} else if (value === '%') {
 			this.onPercent();
+		} else if (value === 'Delete') {
+			this.props.clearData();
+		} else if (value === 'Backspace') {
+			this.props.oneStepBackward();
+		} else if (value === 'c') {
+			if (this.props.displayHistory && this.props.displayHistory.includes('=')) {
+				this.copyToClipboard(undefined, this.getResultText(this.props.displayHistory));
+			} else {
+				this.falseResult();
+			}
 		}
+	};
+	
+	getResultText = (text) => {
+		return /=(.+)/.exec(text)[1];
+	};
+	
+	copyToClipboard = (e, text = this.props.displayHistory) => {
+		if (text.length > 0) {
+			navigator.clipboard.writeText(text).then(() => document.execCommand('copy'), () => this.falseResult());
+			e !== undefined && e.target.focus();
+			this.setState({copied: true});
+			setTimeout(() => {
+				this.setState({copied: false});
+			}, 1000);
+		} else {
+			this.falseResult();
+		}
+	};
+	
+	falseResult = () => {
+		this.setState({result: true});
+		setTimeout(() => {
+			this.setState({result: false});
+		}, 1000);
 	};
 	
 	onAddValue = (number) => {
@@ -173,7 +209,8 @@ class BasicCalculator extends Component {
 		return (
 			<MainLayout>
 				<Header backgroundColor={"whitesmoke"} routes={this.props.history}/>
-				<Display props={this.props}/>
+				<Display props={this.props} copied={this.state.copied} result={this.state.result}
+				         copyToClipboard={this.copyToClipboard}/>
 				<BasicBottomButtons props={this.props}
 				                    onPercent={this.onPercent}
 				                    onAddSymbol={this.onAddSymbol}

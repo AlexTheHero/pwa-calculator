@@ -11,16 +11,32 @@ const changeTextSize = (text) => {
 	return '2.4em';
 };
 
-const Display = ({props}) => {
+const getResultText = (text) => {
+	return /=(.+)/.exec(text)[1];
+};
+
+const getHistory = (text) => {
+	let newText = '';
+	if (text.includes('=')) {
+		newText = text.substring(text.indexOf("="), -1) + '=';
+		return newText;
+	}
+	return text;
+};
+
+const Display = ({props, result, copied, copyToClipboard}) => {
 	let textDisplay = props.displayValue ? props.displayValue : "";
-	let historyDisplay = props.displayHistory ? props.displayHistory : "";
+	let historyDisplay = props.displayHistory ? getHistory(props.displayHistory) : "";
+	let resultText = props.displayHistory ? props.displayHistory.includes('=') && getResultText(props.displayHistory) : '';
 	let symbolDisplay = props.displaySymbol ? props.displaySymbol : "";
 	let fontSize = props.displayValue ? changeTextSize(props.displayValue) : '2.4em';
 	
 	return (
 		<div className="displayContainer">
+			{copied && <p className="displayCopyPopup">The result is copied</p>}
+			{result && <p className="displayCopyPopup">There is no result to copy</p>}
 			<div className="displayTopContainer">
-				<p className="displayTopText">{historyDisplay}</p>
+				<p className="displayTopText">{historyDisplay}<em> {resultText}</em></p>
 			</div>
 			<div className="displayMainTextContainer">
 				<div className="displayMainLeft">
@@ -33,7 +49,7 @@ const Display = ({props}) => {
 			<div className="displayBottomContainer">
 				<div className="displayBottomButtonsContainer">
 					<button className="displayCopyButton">
-						<p className="displayButtonsText">COPY</p>
+						<p className="displayButtonsText" onClick={(e) => copyToClipboard(e, resultText)}>COPY</p>
 					</button>
 				</div>
 				<div className="displayBottomButtonsContainer">
