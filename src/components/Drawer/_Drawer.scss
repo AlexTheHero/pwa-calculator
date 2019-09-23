@@ -2,11 +2,6 @@
 
 .DrawerContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
   height: 90%;
   width: 25%;
   border-radius: 12px;
@@ -20,6 +15,11 @@
   @include respond-to(medium-screens) {width:60%; height: 85%;};
   @include respond-to(standart-screens) {width: 30%};
   @include respond-to(big-desktop) {width: 25%};
+}
+
+.animatedContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .LeftSide {

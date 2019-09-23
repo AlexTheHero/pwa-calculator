@@ -41,7 +41,7 @@ export default class Drawer extends Component {
 			if (op > 1) {
 				clearInterval(id);
 			} else {
-				aWidth += 3;
+				aWidth += 5;
 				op += 0.05;
 				this.setState({animatedOpacity: op, animatedWidth: aWidth + '%'});
 			}
@@ -58,25 +58,32 @@ export default class Drawer extends Component {
 		};
 		
 		return (
-			<div className="DrawerContainer" style={{width: this.state.animatedWidth, opacity: this.state.animatedOpacity}}>
-				<div className="LeftSide">
-					<div className="DrawerButtonsContainer">
-						<DrawerButton text={"Main Menu"}
-						              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Menu)}
-						              disabled={currentLocation === GLOBAL_PATHS.Menu}/>
-						<DrawerButton text={"Basic Calculator"}
-						              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Basic)}
-						              disabled={currentLocation === GLOBAL_PATHS.Basic}/>
-						<DrawerButton text={"Advanced Calculator"}
-						              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Advanced)}
-						              disabled={currentLocation === GLOBAL_PATHS.Advanced}/>
-						<DrawerButton text={"Material Calculator"}
-						              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Material)}
-						              disabled={currentLocation === GLOBAL_PATHS.Material}/>
+			<div className="DrawerContainer">
+				<div className="animatedContainer"
+				     style={{
+					     width: this.state.animatedWidth,
+					     opacity: this.state.animatedOpacity,
+					     height: '100%',
+				     }}>
+					<div className="LeftSide">
+						<div className="DrawerButtonsContainer">
+							<DrawerButton text={"Main Menu"}
+							              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Menu)}
+							              disabled={currentLocation === GLOBAL_PATHS.Menu}/>
+							<DrawerButton text={"Basic Calculator"}
+							              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Basic)}
+							              disabled={currentLocation === GLOBAL_PATHS.Basic}/>
+							<DrawerButton text={"Advanced Calculator"}
+							              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Advanced)}
+							              disabled={currentLocation === GLOBAL_PATHS.Advanced}/>
+							<DrawerButton text={"Material Calculator"}
+							              handleNavigation={() => handleNavigation(GLOBAL_PATHS.Material)}
+							              disabled={currentLocation === GLOBAL_PATHS.Material}/>
+						</div>
 					</div>
-				</div>
-				<div className="RightSide">
-					<button onClick={() => this.closeDrawerAnimated()} className="CloseDrawerButton"/>
+					<div className="RightSide">
+						<button onClick={() => this.closeDrawerAnimated()} className="CloseDrawerButton"/>
+					</div>
 				</div>
 			</div>
 		)
