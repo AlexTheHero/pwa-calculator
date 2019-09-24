@@ -1,11 +1,8 @@
 export const ARITHMETIC_SYMBOLS = /([-/x+÷*])/g;
 
-export const calculatePercentage = (number, percentage = 1) => {
-	let value = number / 100 * percentage;
+export const calculatePercentage = (percentage = 1) => {
+	let value = percentage / 100;
 	
-	if (isNaN(number) || isNaN(percentage)) {
-		return false;
-	}
 	if (isNaN(value)) {
 		return 0;
 	}
@@ -26,19 +23,7 @@ export const resolvePercentageFromString = (values) => {
 	
 	for (let i = 0; i < values.length; i++) {
 		if (values[i].includes('%')) {
-			if (i > 3 && (values[i - 2].includes('%') || values[i - 3].includes('%'))) {
-				if (isNaN(Number(values[i - 2].replace('%', '')))) {
-					newValues.push(calculatePercentage(Number(newValues[newValues.length - 3]), Number(values[i].replace('%', ''))).toString())
-				} else {
-					newValues.push(calculatePercentage(Number(newValues[newValues.length - 2]), Number(values[i].replace('%', ''))).toString())
-				}
-			} else {
-				if (isNaN(Number(values[i - 2].replace('%', '')))) {
-					newValues.push(calculatePercentage(Number(values[i - 3]), Number(values[i].replace('%', ''))).toString());
-				} else {
-					newValues.push(calculatePercentage(Number(values[i - 2]), Number(values[i].replace('%', ''))).toString());
-				}
-			}
+			newValues.push(calculatePercentage(Number(values[i].replace('%', ''))).toString());
 		} else {
 			newValues.push(values[i]);
 		}
