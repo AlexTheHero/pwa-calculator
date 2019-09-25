@@ -33,10 +33,12 @@ const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 	const [isTouchActive, setTouch] = useState(false);
 	const [changeColor, setColor] = useState(false);
 	const [changeColorReturn, setColorReturn] = useState(false);
-	let stylesCopy = isTouchActive ? {
-			backgroundColor: changeColor ? 'IndianRed' : 'lightgrey', color: changeColor ? 'white' : 'black'
-		}
-		: {};
+	let stylesCopy = isTouchActive ?
+		{backgroundColor: changeColor ? 'IndianRed' : 'lightgrey', color: changeColor ? 'white' : 'black'}
+		: themeColor.buttonContainerColor ? {
+			backgroundColor: themeColor.buttonContainerColor,
+			color: themeColor.buttonContainerTextColor
+		} : {};
 	let stylesReturn = isTouchActive ? {
 			backgroundColor: changeColorReturn ? 'IndianRed' : themeColor.backgroundColor,
 			color: changeColorReturn ? 'white' : themeColor.color
@@ -79,8 +81,9 @@ const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 					        onTouchStart={() => !isTouchActive && setTouch(true)}
 					        onTouchEnd={() => handleTouchButton()}
 					        style={stylesCopy}
+					        onClick={(e) => copyToClipboard(e, resultText)}
 					>
-						<p className="displayButtonsText" onClick={(e) => copyToClipboard(e, resultText)}>COPY</p>
+						<p className="displayButtonsText">COPY</p>
 					</button>
 				</div>
 				<div className="displayBottomButtonsContainer">

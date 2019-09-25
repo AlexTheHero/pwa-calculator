@@ -56,6 +56,13 @@ export const changeThemeColor = (themeStyle) => {
 	} else if (themeStyle === COLOR_THEME_NAMES.prestige) {
 		localStorage.setItem('SavedThemeName', COLOR_THEME_NAMES.prestige);
 		DEFAULT_THEME_COLOR_BODY = {backgroundColor: '#f6ca69', color: '#402103'};
-		DEFAULT_THEME_COLOR_HEADER = {background: 'linear-gradient(#ffda68, #f6ca69, #FDE08D, #DF9F28)', backgroundColor: 'transparent', color: '#402103'};
+		DEFAULT_THEME_COLOR_HEADER = {
+			background: 'linear-gradient(#ffda68, #f6ca69, #FDE08D, #DF9F28)',
+			backgroundColor: 'transparent',
+			color: '#402103',
+			buttonContainerColor: '#374252',
+			buttonContainerTextColor: '#f6ca69',
+			menuColor: 'transparent'
+		};
 	}
 };
