@@ -1,0 +1,103 @@
+@import "../../config/utils/respond-to";
+
+.DefaultThemeButton {
+  width: 100%;
+  outline: 0;
+  height: 7%;
+  border: none;
+  background-color: #8b2d4d;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  @include respond-to(handhelds) {width: 100%; };
+  @include respond-to(minimum-screens) {width: 80%;};
+  @include respond-to(phone-screens) {width: 70%;};
+  @include respond-to(medium-screens) {width:70%;};
+  @include respond-to(standart-screens) {width: 60%};
+  @include respond-to(big-desktop) {width: 50%};
+}
+
+.DefaultThemeButton:hover {
+  background-color: white;
+}
+
+.DefaultThemeText {
+  color: white;
+  font-size: 1.5em;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-family: "American Typewriter", sans-serif;
+}
+
+.DefaultThemeText:hover {
+  color: #8b2d4d;
+}
+
+.DarkModeThemeButton {
+  width: 100%;
+  outline: 0;
+  border: none;
+  margin-bottom: 5%;
+  background-color: darkseagreen;
+  height: 7%;
+  margin-left: 10%;
+  border-radius: 10px;
+  @include respond-to(handhelds) {width: 100%; };
+  @include respond-to(minimum-screens) {width: 80%;};
+  @include respond-to(phone-screens) {width: 70%;};
+  @include respond-to(medium-screens) {width:70%;};
+  @include respond-to(standart-screens) {width: 60%};
+  @include respond-to(big-desktop) {width: 50%};
+}
+
+.DarkModeThemeButton:hover {
+  background-color: #374252;
+}
+
+.DarkModeThemeText {
+  color: #374252;
+  font-size: 1.5em;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-family: "American Typewriter", sans-serif;
+}
+
+.DarkModeThemeText:hover {
+  color: whitesmoke;
+}
+
+
+.CloseOptionMenu {
+  width: 100%;
+  outline: 0;
+  border: none;
+  margin-top: 20%;
+  margin-bottom: 5%;
+  background-color: goldenrod;
+  height: 7%;
+  border-radius: 10px;
+  @include respond-to(handhelds) {width: 100%;};
+  @include respond-to(minimum-screens) {width: 80%;};
+  @include respond-to(phone-screens) {width: 70%;};
+  @include respond-to(medium-screens) {width:70%;};
+  @include respond-to(standart-screens) {width: 60%};
+  @include respond-to(big-desktop) {width: 50%};
+}
+
+.CloseOptionText {
+  color: #1d6a98;
+  font-size: 1.5em;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-family: "American Typewriter", sans-serif;
+}
+
+.CloseOptionText:hover {
+  color: #363b98;
+}

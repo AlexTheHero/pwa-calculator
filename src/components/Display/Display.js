@@ -24,7 +24,7 @@ const getHistory = (text) => {
 	return text;
 };
 
-const Display = ({props, result, copied, copyToClipboard}) => {
+const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 	let textDisplay = props.displayValue ? props.displayValue : "";
 	let historyDisplay = props.displayHistory ? getHistory(props.displayHistory) : "";
 	let resultText = props.displayHistory ? props.displayHistory.includes('=') && getResultText(props.displayHistory) : '';
@@ -38,9 +38,10 @@ const Display = ({props, result, copied, copyToClipboard}) => {
 		}
 		: {};
 	let stylesReturn = isTouchActive ? {
-			backgroundColor: changeColorReturn ? 'IndianRed' : 'transparent', color: changeColorReturn ? 'white' : 'black'
+			backgroundColor: changeColorReturn ? 'IndianRed' : themeColor.backgroundColor,
+			color: changeColorReturn ? 'white' : themeColor.color
 		}
-		: {};
+		: themeColor.backgroundColor !== 'white' ? {color: themeColor.color} : {};
 	const handleTouchButton = () => {
 		setColor(true);
 		setTimeout(() => setColor(false), 250);
@@ -52,7 +53,7 @@ const Display = ({props, result, copied, copyToClipboard}) => {
 	};
 	
 	return (
-		<div className="displayContainer">
+		<div className="displayContainer" style={themeColor}>
 			{copied &&
 			<div className="displayCopyPopContainer">
 				<p className="displayCopyPopup">The result is copied</p>
@@ -66,10 +67,10 @@ const Display = ({props, result, copied, copyToClipboard}) => {
 			</div>
 			<div className="displayMainTextContainer">
 				<div className="displayMainLeft">
-					<p className="displayRightText">{symbolDisplay}</p>
+					<p className="displayRightText" style={{color: themeColor.color}}>{symbolDisplay}</p>
 				</div>
 				<div className="displayMainRight">
-					<p className="displayMainText" style={{fontSize: fontSize}}>{textDisplay}</p>
+					<p className="displayMainText" style={{fontSize: fontSize, color: themeColor.color}}>{textDisplay}</p>
 				</div>
 			</div>
 			<div className="displayBottomContainer">

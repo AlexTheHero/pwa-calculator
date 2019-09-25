@@ -1,13 +1,7 @@
 export const ARITHMETIC_SYMBOLS = /([-/x+÷*])/g;
 
-export const calculatePercentage = (percentage = 1) => {
-	let value = percentage / 100;
-	
-	if (isNaN(value)) {
-		return 0;
-	}
-	
-	return value;
+export const calculatePercentage = (number = 1, percentage = 1) => {
+	return number * percentage / 100;
 };
 
 export const removeSignedValue = (value) => {
@@ -18,12 +12,21 @@ export const removeSignedValue = (value) => {
 	return value;
 };
 
-export const resolvePercentageFromString = (values) => {
+export const resolvePercentageFromStringBasic = (values) => {
 	let newValues = [];
 	
 	for (let i = 0; i < values.length; i++) {
 		if (values[i].includes('%')) {
-			newValues.push(calculatePercentage(Number(values[i].replace('%', ''))).toString());
+			if (values[i - 1] === '-' || values[i - 1] === '+') {
+				if(values[i - 2].includes('%')){
+					newValues.push(calculatePercentage(Number(newValues[newValues.length - 2]), Number(values[i].replace('%', ''))).toString());
+				}
+				else {
+					newValues.push(calculatePercentage(Number(values[i - 2]), Number(values[i].replace('%', ''))).toString());
+				}
+			} else {
+				newValues.push(calculatePercentage(Number(values[i].replace('%', ''))).toString());
+			}
 		} else {
 			newValues.push(values[i]);
 		}
@@ -107,7 +110,7 @@ export const resolveAdditionFromString = (values) => {
 
 export const calculateValues = (values) => {
 	let theValues = values.replace(/[()]/g, '').trim().split(/\s+/);
-	theValues = resolveAdditionFromString(resolveMultiplicationFromString(resolvePercentageFromString(theValues)));
+	theValues = resolveAdditionFromString(resolveMultiplicationFromString(resolvePercentageFromStringBasic(theValues)));
 	
 	return theValues;
 };

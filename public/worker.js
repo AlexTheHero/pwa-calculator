@@ -4,7 +4,8 @@ const urlsToCache = [
 	'/',
 	'/basic',
 	'/advanced',
-	'/material'
+	'/material',
+	'/options'
 ];
 
 // Install a service worker

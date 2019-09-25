@@ -52,6 +52,27 @@
   color: white;
 }
 
+.DeleteButtonStructure{
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: transparent;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  color: IndianRed;
+}
+
+.DeleteButtonStructure:hover {
+  background-color: IndianRed;
+  color: white;
+}
+
 .textStyle {
   font-size: 2em;
   margin: auto;

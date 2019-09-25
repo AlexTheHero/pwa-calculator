@@ -3,13 +3,12 @@ import "./_Header.scss";
 import Drawer from "../Drawer/Drawer";
 import {GLOBAL_ICONS} from "../../config/constants/globals";
 
-const Header = ({height, backgroundColor, routes}) => {
+const Header = ({height, themeColor, routes}) => {
 	const theHeight = height ? height : '5%';
-	const theBackground = backgroundColor ? backgroundColor : 'transparent';
 	const [openMenu, setOpenMenu] = useState(false);
 	
 	return (
-		<div className="basicHeader" style={{height: theHeight, backgroundColor: theBackground}}>
+		<div className="basicHeader" style={{height: theHeight, ...themeColor}}>
 			<div className="headerMenuButtonContainer">
 				<button className="headerMenuButton" onClick={() => setOpenMenu(!openMenu)}>
 					{GLOBAL_ICONS.menu}

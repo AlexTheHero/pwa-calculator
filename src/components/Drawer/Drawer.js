@@ -31,7 +31,7 @@ export default class Drawer extends Component {
 			}
 		};
 		
-		let id = setInterval(frame, 20);
+		let id = setInterval(frame, 10);
 	};
 	
 	openDrawerAnimated = () => {
@@ -47,7 +47,7 @@ export default class Drawer extends Component {
 			}
 		};
 		
-		let id = setInterval(frame, 30);
+		let id = setInterval(frame, 20);
 	};
 	
 	

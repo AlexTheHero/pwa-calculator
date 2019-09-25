@@ -14,7 +14,8 @@ import {
 } from "../../config/actions/BasicActions";
 import {connect} from "react-redux";
 import MainLayout from "../../components/MainLayout/MainLayout";
-import {ARITHMETIC_SYMBOLS, calculatePercentage, calculateValues, removeSignedValue} from "../../config/utils/utils";
+import {ARITHMETIC_SYMBOLS, calculatePercentage, calculateValues, removeSignedValue} from "../../config/utils/basicUtils";
+import {DEFAULT_THEME_COLOR_BODY, DEFAULT_THEME_COLOR_HEADER} from "../../config/constants/globals";
 
 class BasicCalculator extends Component {
 	constructor(props) {
@@ -208,14 +209,19 @@ class BasicCalculator extends Component {
 	render() {
 		return (
 			<MainLayout>
-				<Header backgroundColor={"whitesmoke"} routes={this.props.history}/>
-				<Display props={this.props} copied={this.state.copied} result={this.state.result}
-				         copyToClipboard={this.copyToClipboard}/>
+				<Header themeColor={DEFAULT_THEME_COLOR_HEADER} routes={this.props.history}/>
+				<Display props={this.props}
+				         copied={this.state.copied}
+				         result={this.state.result}
+				         themeColor={DEFAULT_THEME_COLOR_HEADER}
+				         copyToClipboard={this.copyToClipboard}
+				/>
 				<BasicBottomButtons props={this.props}
 				                    onPercent={this.onPercent}
 				                    onAddSymbol={this.onAddSymbol}
 				                    onAddValue={this.onAddValue}
 				                    onEqual={this.onEqual}
+				                    themeColor={DEFAULT_THEME_COLOR_BODY}
 				/>
 			</MainLayout>
 		)
