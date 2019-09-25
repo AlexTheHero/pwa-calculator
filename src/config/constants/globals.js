@@ -55,7 +55,7 @@ export const changeThemeColor = (themeStyle) => {
 		DEFAULT_THEME_COLOR_HEADER = {backgroundColor: '#475362', color: 'whitesmoke'};
 	} else if (themeStyle === COLOR_THEME_NAMES.prestige) {
 		localStorage.setItem('SavedThemeName', COLOR_THEME_NAMES.prestige);
-		DEFAULT_THEME_COLOR_BODY = {backgroundColor: 'grey', color: 'green'};
-		DEFAULT_THEME_COLOR_HEADER = {backgroundColor: 'blue', color: 'blue'};
+		DEFAULT_THEME_COLOR_BODY = {backgroundColor: '#f6ca69', color: '#402103'};
+		DEFAULT_THEME_COLOR_HEADER = {backgroundColor: '#ffda68', color: '#402103'};
 	}
 };

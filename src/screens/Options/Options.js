@@ -11,10 +11,6 @@ export default class Options extends Component {
 		};
 	}
 	
-	componentDidMount() {
-		document.addEventListener('keydown', (e) => this.handleTyping(e.key));
-	}
-	
 	handleClick = (themeName) => {
 		changeThemeColor(themeName);
 		this.setState({changeStyle: !this.state.changeStyle})
@@ -35,6 +31,11 @@ export default class Options extends Component {
 				        onTouchStart={() => this.setState({isTouchActive: true})}
 				        style={isTouchActive ? {backgroundColor: "darkseagreen"} : {}}>
 					<p className="DarkModeThemeText" style={isTouchActive ? {color: "#374252"} : {}}>DARK_MODE</p>
+				</button>
+				<button onClick={() => this.handleClick(COLOR_THEME_NAMES.prestige)} className="PrestigeThemeButton"
+				        onTouchStart={() => this.setState({isTouchActive: true})}
+				        style={isTouchActive ? {backgroundColor: "darkslateblue"} : {}}>
+					<p className="PrestigeThemeText" style={isTouchActive ? {color: "mediumslateblue"} : {}}>PRESTIGE</p>
 				</button>
 				<button onClick={() => this.props.history.push('/')} className="CloseOptionMenu">
 					<p className="CloseOptionText">CLOSE</p>

@@ -70,6 +70,40 @@
   color: whitesmoke;
 }
 
+.PrestigeThemeButton {
+  width: 100%;
+  outline: 0;
+  border: none;
+  margin-bottom: 5%;
+  background-color: darkslateblue;
+  height: 7%;
+  margin-right: 10%;
+  border-radius: 10px;
+  @include respond-to(handhelds) {width: 100%; };
+  @include respond-to(minimum-screens) {width: 80%;};
+  @include respond-to(phone-screens) {width: 70%;};
+  @include respond-to(medium-screens) {width:70%;};
+  @include respond-to(standart-screens) {width: 60%};
+  @include respond-to(big-desktop) {width: 50%};
+}
+
+.PrestigeThemeButton:hover {
+  background-color: #f6ca69;
+}
+
+.PrestigeThemeText {
+  color: mediumslateblue;
+  font-size: 1.5em;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-family: "American Typewriter", sans-serif;
+}
+
+.PrestigeThemeText:hover {
+  color: #402103;
+}
 
 .CloseOptionMenu {
   width: 100%;
