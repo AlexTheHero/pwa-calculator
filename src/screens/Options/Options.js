@@ -7,8 +7,15 @@ export default class Options extends Component {
 		super(props);
 		this.state = {
 			changeStyle: true,
-			isTouchActive: false
+			isTouchActive: false,
+			activateThemeColor: false
 		};
+	}
+	
+	componentDidMount() {
+		document.addEventListener('keydown', (e) => this.handleTyping(e.key));
+		changeThemeColor(localStorage.getItem('SavedThemeName'));
+		this.setState({activateThemeColor: true})
 	}
 	
 	handleClick = (themeName) => {

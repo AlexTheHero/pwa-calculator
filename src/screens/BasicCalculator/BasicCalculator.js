@@ -15,19 +15,22 @@ import {
 import {connect} from "react-redux";
 import MainLayout from "../../components/MainLayout/MainLayout";
 import {ARITHMETIC_SYMBOLS, calculatePercentage, calculateValues, removeSignedValue} from "../../config/utils/basicUtils";
-import {DEFAULT_THEME_COLOR_BODY, DEFAULT_THEME_COLOR_HEADER} from "../../config/constants/globals";
+import {changeThemeColor, DEFAULT_THEME_COLOR_BODY, DEFAULT_THEME_COLOR_HEADER} from "../../config/constants/globals";
 
 class BasicCalculator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			copied: false,
-			result: false
+			result: false,
+			activateThemeColor: false
 		}
 	}
 	
 	componentDidMount() {
-		document.addEventListener('keydown', (e) => this.handleTyping(e.key))
+		document.addEventListener('keydown', (e) => this.handleTyping(e.key));
+		changeThemeColor(localStorage.getItem('SavedThemeName'));
+		this.setState({activateThemeColor: true})
 	}
 	
 	componentWillUnmount() {
