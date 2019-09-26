@@ -95,6 +95,7 @@
   outline: 0;
   display: flex;
   border: none;
+  color: #475362;
   background-color: lightgrey;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -171,4 +172,61 @@
   align-content: center;
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
+}
+
+.darkReturnTheme {
+  width: 50%;
+  height: 40%;
+  border-radius: 14px;
+  outline: 0;
+  border: none;
+  color: whitesmoke;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: transparent;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.darkReturnTheme:hover {
+  background-color: indianred;
+  color: #374252;
+}
+
+.prestigeCopyTheme {
+  width: 70%;
+  height: 40%;
+  border-radius: 14px;
+  outline: 0;
+  display: flex;
+  border: none;
+  color: #f6ca69;
+  background-color: #374252;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.prestigeCopyTheme:hover {
+  background-color: rgba(72, 61, 139, 0.75);
+  color: rgba(255, 255, 224, 0.75);
+}
+
+.prestigeReturnTheme {
+  width: 50%;
+  height: 40%;
+  border-radius: 14px;
+  outline: 0;
+  border: none;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: transparent;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.prestigeReturnTheme:hover {
+  background-color: rgba(72, 61, 139, 0.75);
+  color: rgba(255, 255, 224, 0.75);
 }

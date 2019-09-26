@@ -1,4 +1,4 @@
-.layoutButton{
+.defaultLayoutButton{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   width: 100%;
@@ -6,11 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: whitesmoke;
   background-color: IndianRed;
 }
 
-.layoutButton:hover{
+.defaultLayoutButton:hover{
   background-color: #68919e;
+  color: black;
 };
 
 .Text{
@@ -19,10 +21,22 @@
   text-align: center;
   font-weight: bold;
   margin: auto;
-  color: whitesmoke;
   font-family: "Apple SD Gothic Neo", sans-serif;
 }
 
-.Text:hover{
-  color: black;
+.prestigeLayoutButton{
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(15, 22, 30, 0.74);
+  color: rgba(255, 255, 224, 0.75);
 }
+
+.prestigeLayoutButton:hover{
+  background-color: rgba(65, 65, 129, 0.8);
+  color: #D86489;
+};

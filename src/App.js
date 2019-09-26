@@ -11,14 +11,7 @@ import {changeThemeColor} from "./config/constants/globals";
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			activateTheme: false
-		}
-	}
-	
-	componentDidMount() {
-		changeThemeColor(localStorage.getItem('SavedThemeName'));
-		this.setState({activateTheme: true})
+		this.state = {activateTheme: changeThemeColor(localStorage.getItem('SavedThemeName'))}
 	}
 	
 	render() {

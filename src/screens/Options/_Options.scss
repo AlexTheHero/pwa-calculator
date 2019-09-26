@@ -6,6 +6,7 @@
   height: 7%;
   border: none;
   background-color: #8b2d4d;
+  color: white;
   margin-right: 10%;
   margin-bottom: 5%;
   border-radius: 10px;
@@ -19,10 +20,10 @@
 
 .DefaultThemeButton:hover {
   background-color: white;
+  color: #8b2d4d;
 }
 
 .DefaultThemeText {
-  color: white;
   font-size: 1.5em;
   margin: auto;
   font-weight: bold;
@@ -31,15 +32,12 @@
   font-family: "American Typewriter", sans-serif;
 }
 
-.DefaultThemeText:hover {
-  color: #8b2d4d;
-}
-
 .DarkModeThemeButton {
   width: 100%;
   outline: 0;
   border: none;
   margin-bottom: 5%;
+  color: #374252;
   background-color: darkseagreen;
   height: 7%;
   margin-left: 10%;
@@ -53,21 +51,8 @@
 }
 
 .DarkModeThemeButton:hover {
-  background-color: #374252;
-}
-
-.DarkModeThemeText {
-  color: #374252;
-  font-size: 1.5em;
-  margin: auto;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 0.1em;
-  font-family: "American Typewriter", sans-serif;
-}
-
-.DarkModeThemeText:hover {
   color: whitesmoke;
+  background-color: #374252;
 }
 
 .PrestigeThemeButton {
@@ -76,6 +61,7 @@
   border: none;
   margin-bottom: 5%;
   background-color: darkslateblue;
+  color: mediumslateblue;
   height: 7%;
   margin-right: 10%;
   border-radius: 10px;
@@ -89,19 +75,6 @@
 
 .PrestigeThemeButton:hover {
   background-color: #f6ca69;
-}
-
-.PrestigeThemeText {
-  color: mediumslateblue;
-  font-size: 1.5em;
-  margin: auto;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 0.1em;
-  font-family: "American Typewriter", sans-serif;
-}
-
-.PrestigeThemeText:hover {
   color: #402103;
 }
 
@@ -112,6 +85,7 @@
   margin-top: 20%;
   margin-bottom: 5%;
   background-color: goldenrod;
+  color: #1d6a98;
   height: 7%;
   border-radius: 10px;
   @include respond-to(handhelds) {width: 100%;};
@@ -122,16 +96,6 @@
   @include respond-to(big-desktop) {width: 50%};
 }
 
-.CloseOptionText {
-  color: #1d6a98;
-  font-size: 1.5em;
-  margin: auto;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 0.1em;
-  font-family: "American Typewriter", sans-serif;
-}
-
-.CloseOptionText:hover {
+.CloseOptionMenu:hover {
   color: #363b98;
 }

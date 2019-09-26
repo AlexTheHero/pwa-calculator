@@ -30,15 +30,15 @@ export default class Options extends Component {
 				<button onClick={() => this.handleClick(COLOR_THEME_NAMES.dark_mode)} className="DarkModeThemeButton"
 				        onTouchStart={() => this.setState({isTouchActive: true})}
 				        style={isTouchActive ? {backgroundColor: "darkseagreen"} : {}}>
-					<p className="DarkModeThemeText" style={isTouchActive ? {color: "#374252"} : {}}>DARK_MODE</p>
+					<p className="DefaultThemeText" style={isTouchActive ? {color: "#374252"} : {}}>DARK_MODE</p>
 				</button>
 				<button onClick={() => this.handleClick(COLOR_THEME_NAMES.prestige)} className="PrestigeThemeButton"
 				        onTouchStart={() => this.setState({isTouchActive: true})}
 				        style={isTouchActive ? {backgroundColor: "darkslateblue"} : {}}>
-					<p className="PrestigeThemeText" style={isTouchActive ? {color: "mediumslateblue"} : {}}>PRESTIGE</p>
+					<p className="DefaultThemeText" style={isTouchActive ? {color: "mediumslateblue"} : {}}>PRESTIGE</p>
 				</button>
 				<button onClick={() => this.props.history.push('/')} className="CloseOptionMenu">
-					<p className="CloseOptionText">CLOSE</p>
+					<p className="DefaultThemeText">CLOSE</p>
 				</button>
 			</div>
 		)

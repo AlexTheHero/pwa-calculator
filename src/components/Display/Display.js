@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./_Display.scss";
-import {GLOBAL_ICONS} from "../../config/constants/globals";
+import {COLOR_THEME_NAMES, GLOBAL_ICONS} from "../../config/constants/globals";
 
 const changeTextSize = (text) => {
 	let rightEm = 2.4 * (14 / text.length);
@@ -24,26 +24,43 @@ const getHistory = (text) => {
 	return text;
 };
 
+const detectCopyColorTheme = (name) => {
+	if(COLOR_THEME_NAMES.prestige === name){
+		return `${name}CopyTheme`
+	}
+	return 'displayCopyButton';
+};
+
+const detectReturnColorTheme = (name) => {
+	if(COLOR_THEME_NAMES.prestige === name){
+		return `${name}ReturnTheme`
+	}else if(COLOR_THEME_NAMES.dark_mode === name){
+		return `${name}ReturnTheme`
+	}
+	return 'displayReturnButton';
+};
+
 const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 	let textDisplay = props.displayValue ? props.displayValue : "";
 	let historyDisplay = props.displayHistory ? getHistory(props.displayHistory) : "";
 	let resultText = props.displayHistory ? props.displayHistory.includes('=') && getResultText(props.displayHistory) : '';
 	let symbolDisplay = props.displaySymbol ? props.displaySymbol : "";
 	let fontSize = props.displayValue ? changeTextSize(props.displayValue) : '2.4em';
+	const copyColorTheme = detectCopyColorTheme(themeColor.name);
+	const returnColorTheme = detectReturnColorTheme(themeColor.name);
 	const [isTouchActive, setTouch] = useState(false);
 	const [changeColor, setColor] = useState(false);
 	const [changeColorReturn, setColorReturn] = useState(false);
 	let stylesCopy = isTouchActive ?
-		{backgroundColor: changeColor ? 'IndianRed' : 'lightgrey', color: changeColor ? 'white' : 'black'}
-		: themeColor.buttonContainerColor ? {
-			backgroundColor: themeColor.buttonContainerColor,
-			color: themeColor.buttonContainerTextColor
+		{
+			backgroundColor: changeColor ? themeColor.activeTouchBackgroundColor : themeColor.copyBackgroundColor,
+			color: changeColor ? themeColor.activeTextColor : themeColor.copyColor
 		} : {};
-	let stylesReturn = isTouchActive ? {
-			backgroundColor: changeColorReturn ? 'IndianRed' : themeColor.backgroundColor,
-			color: changeColorReturn ? 'white' : themeColor.color
-		}
-		: themeColor.backgroundColor !== 'white' ? {color: themeColor.color} : {};
+	let stylesReturn = isTouchActive ?
+		{
+			backgroundColor: changeColorReturn ? themeColor.activeTouchBackgroundColor : themeColor.returnBackgroundColor,
+			color: changeColorReturn ? themeColor.activeTextColor : themeColor.returnColor
+		} : {};
 	const handleTouchButton = () => {
 		setColor(true);
 		setTimeout(() => setColor(false), 250);
@@ -58,11 +75,11 @@ const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 		<div className="displayContainer" style={themeColor}>
 			{copied &&
 			<div className="displayCopyPopContainer">
-				<p className="displayCopyPopup">The result is copied</p>
+				<p className="displayCopyPopup" style={{color: themeColor.activeTouchBackgroundColor}}>The result is copied</p>
 			</div>}
 			{result &&
 			<div className="displayCopyPopContainer">
-				<p className="displayCopyPopup">There is no result to copy</p>
+				<p className="displayCopyPopup" style={{color: themeColor.activeTouchBackgroundColor}}>There is no result to copy</p>
 			</div>}
 			<div className="displayTopContainer">
 				<p className="displayTopText">{historyDisplay}<em> {resultText}</em></p>
@@ -77,7 +94,7 @@ const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 			</div>
 			<div className="displayBottomContainer">
 				<div className="displayBottomButtonsContainer">
-					<button className="displayCopyButton"
+					<button className={copyColorTheme}
 					        onTouchStart={() => !isTouchActive && setTouch(true)}
 					        onTouchEnd={() => handleTouchButton()}
 					        style={stylesCopy}
@@ -87,7 +104,7 @@ const Display = ({props, result, copied, copyToClipboard, themeColor}) => {
 					</button>
 				</div>
 				<div className="displayBottomButtonsContainer">
-					<button className="displayReturnButton"
+					<button className={returnColorTheme}
 					        onClick={() => props.oneStepBackward()}
 					        onTouchStart={() => !isTouchActive && setTouch(true)}
 					        onTouchEnd={() => handleTouchButtonReturn()}

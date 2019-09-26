@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-.DefaultButtonStructure {
+.defaultSymbolButton {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
@@ -27,16 +27,17 @@
   justify-items: center;
 }
 
-.DefaultButtonStructure:hover {
+.defaultSymbolButton:hover {
   background-color: IndianRed;
   color: white;
 }
 
-.ButtonStructure {
+.defaultCustomSymbolButton {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
   background-color: whitesmoke;
+  color: #475362;
   width: 7vh;
   height: 7vh;
   display: flex;
@@ -47,12 +48,12 @@
   justify-items: center;
 }
 
-.ButtonStructure:hover {
+.defaultCustomSymbolButton:hover {
   background-color: IndianRed;
   color: white;
 }
 
-.DeleteButtonStructure{
+.defaultDeleteButton{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
@@ -68,7 +69,7 @@
   color: IndianRed;
 }
 
-.DeleteButtonStructure:hover {
+.defaultDeleteButton:hover {
   background-color: IndianRed;
   color: white;
 }
@@ -84,5 +85,86 @@
   @include respond-to(medium-screens) {font-size: 2.6em;};
   @include respond-to(standart-screens) {font-size: 2.8em;};
   @include respond-to(big-desktop) {font-size: 2.3em;};
-;
+}
+
+.prestigeCustomSymbolButton {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: rgba(15, 22, 30, 0.74);
+  color: rgba(255, 255, 224, 0.75);
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.prestigeCustomSymbolButton:hover {
+  background-color: rgba(65, 65, 129, 0.8);
+  color: #D86489;
+}
+
+.prestigeDeleteButton{
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: transparent;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  color: #D86489;
+}
+
+.prestigeDeleteButton:hover {
+  background-color: rgba(65, 65, 129, 0.8);
+  color: rgba(255, 255, 224, 0.75);
+}
+
+.prestigeSymbolButton {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: transparent;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.prestigeSymbolButton:hover {
+  background-color: rgba(65, 65, 129, 0.8);
+  color: rgba(255, 255, 224, 0.75);
+}
+
+.prestigeSymbolButton {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: transparent;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.prestigeSymbolButton:hover {
+  background-color: rgba(65, 65, 129, 0.8);
+  color: rgba(255, 255, 224, 0.75);
 }

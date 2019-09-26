@@ -11,8 +11,8 @@ const Header = ({height, themeColor, routes}) => {
 		<div className="basicHeader" style={{height: theHeight, ...themeColor}}>
 			<div className="headerMenuButtonContainer">
 				<button className="headerMenuButton" onClick={() => setOpenMenu(!openMenu)}
-				        style={themeColor.buttonContainerColor ?
-					        {backgroundColor: themeColor.menuColor, color: themeColor.color}
+				        style={themeColor.customMenuColors ?
+					        {backgroundColor: themeColor.menuBackgroundColor, color: themeColor.menuColor}
 					        :
 					        {}}>
 					{GLOBAL_ICONS.menu}
