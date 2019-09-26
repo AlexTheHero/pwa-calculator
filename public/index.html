@@ -36,5 +36,11 @@
         console.log('Service Worker is not supported by browser.');
       }
     </script>
+  <script>
+    if (location.protocol !== 'https:' && !window.location.href.includes('localhost'))
+    {
+      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
+  </script>
   </body>
 </html>
