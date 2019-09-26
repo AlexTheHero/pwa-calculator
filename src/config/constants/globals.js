@@ -1,6 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
+	faAngleDoubleLeft,
 	faBackspace,
 	faBars,
 	faDivide,
@@ -11,7 +12,7 @@ import {
 	faPlus,
 	faPlusSquare,
 	faTimes,
-	faTrashAlt
+	faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 export let DEFAULT_THEME_COLOR_BODY = {};
@@ -42,6 +43,7 @@ export const GLOBAL_ICONS = {
 	multiply: <FontAwesomeIcon icon={faTimes} style={{fontSize: 16}}/>,
 	plusSquare: <FontAwesomeIcon icon={faPlusSquare} style={{fontSize: 16}}/>,
 	minusSquare: <FontAwesomeIcon icon={faMinusSquare} style={{fontSize: 16}}/>,
+	closeWindow: <FontAwesomeIcon icon={faAngleDoubleLeft} style={{fontSize: 28}}/>,
 };
 
 //To change hover theme color, is enough to change name.

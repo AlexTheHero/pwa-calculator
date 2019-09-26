@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import "./_Drawer.scss";
 import DrawerButton from "./DrawerButton";
-import {GLOBAL_PATHS} from "../../config/constants/globals";
+import {GLOBAL_ICONS, GLOBAL_PATHS} from "../../config/constants/globals";
 
 export default class Drawer extends Component {
 	constructor(props) {
@@ -59,6 +59,10 @@ export default class Drawer extends Component {
 		
 		return (
 			<div className="DrawerContainer">
+				<button className="closeDrawerButton" onClick={() => this.closeDrawerAnimated()}
+				        style={{opacity: this.state.animatedOpacity}}>
+					<p className="closeDrawerButtonText">{GLOBAL_ICONS.closeWindow}</p>
+				</button>
 				<div className="animatedContainer"
 				     style={{
 					     width: this.state.animatedWidth,

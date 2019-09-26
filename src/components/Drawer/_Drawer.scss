@@ -84,3 +84,25 @@
 .DrawerButtonText:hover{
   color: black;
 }
+
+.closeDrawerButton {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  color: rgba(0, 0, 0, 0.65);
+  width: 14%;
+  height: 5%;
+  outline: 0;
+  border: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+};
+
+.closeDrawerButton:hover {
+  color: #a15454;
+}
+
+.closeDrawerButtonText {
+  text-align: center;
+  margin: auto;
+}
