@@ -17,7 +17,7 @@ export default class Options extends Component {
 	};
 	
 	handleDonationButton = () => {
-		window.location.href = 'https://paypal.me/thealexseven?locale.x=en_US'
+		window.location.href = 'https://paypal.me/thealexseven'
 	};
 	
 	render() {
@@ -43,7 +43,7 @@ export default class Options extends Component {
 				<button onClick={() => this.props.history.push('/')} className="CloseOptionMenu">
 					<p className="DefaultThemeText">CLOSE</p>
 				</button>
-				<p className="DonateText">If you like it please support using button below</p>
+				<p className="DonateText">If you like it, please support using button below</p>
 				<button className="DonateButton" onClick={() => this.handleDonationButton()}>
 					<p className="DefaultThemeText">donate</p>
 				</button>
