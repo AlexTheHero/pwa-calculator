@@ -99,3 +99,28 @@
 .CloseOptionMenu:hover {
   color: #363b98;
 }
+
+.DonateText {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 25%;
+  text-align: center;
+  @include respond-to(handhelds) {margin: 10%};
+}
+
+.DonateButton {
+  width: 100%;
+  outline: 0;
+  border: none;
+  margin-bottom: 5%;
+  background-color: #6d9854;
+  color: #e6e3e9;
+  height: 7%;
+  border-radius: 10px;
+  @include respond-to(handhelds) {width: 100%;};
+  @include respond-to(minimum-screens) {width: 80%;};
+  @include respond-to(phone-screens) {width: 70%;};
+  @include respond-to(medium-screens) {width:70%;};
+  @include respond-to(standart-screens) {width: 60%};
+  @include respond-to(big-desktop) {width: 50%};
+}

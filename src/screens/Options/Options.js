@@ -16,6 +16,9 @@ export default class Options extends Component {
 		this.setState({changeStyle: !this.state.changeStyle})
 	};
 	
+	handleDonationButton = () => {
+		window.location.href = 'https://paypal.me/thealexseven?locale.x=en_US'
+	};
 	
 	render() {
 		const {isTouchActive} = this.state;
@@ -39,6 +42,10 @@ export default class Options extends Component {
 				</button>
 				<button onClick={() => this.props.history.push('/')} className="CloseOptionMenu">
 					<p className="DefaultThemeText">CLOSE</p>
+				</button>
+				<p className="DonateText">If you like it please support using button below</p>
+				<button className="DonateButton" onClick={() => this.handleDonationButton()}>
+					<p className="DefaultThemeText">donate</p>
 				</button>
 			</div>
 		)
