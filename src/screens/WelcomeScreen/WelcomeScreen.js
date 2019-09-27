@@ -11,7 +11,7 @@ const WelcomeScreen = ({history}) => {
 			              themeColorName={DEFAULT_THEME_COLOR_BODY.name}/>
 			<LayoutButton text={"Advanced Calculator"} handleClick={() => history.push('/advanced')}
 			              themeColorName={DEFAULT_THEME_COLOR_BODY.name}/>
-			<LayoutButton text={"Material Calculator"} handleClick={() => history.push('/material')}
+			<LayoutButton text={"Ultimate Calculator"} handleClick={() => history.push('/ultimate')}
 			              themeColorName={DEFAULT_THEME_COLOR_BODY.name}/>
 			<LayoutButton text={"Options"} handleClick={() => history.push('/options')}
 			              themeColorName={DEFAULT_THEME_COLOR_BODY.name}/>

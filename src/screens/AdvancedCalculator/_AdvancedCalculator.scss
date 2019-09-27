@@ -1,3 +1,5 @@
+@import "../../config/utils/respond-to";
+
 .AdvancedContainer {
   background-color: mediumslateblue;
   display: flex;
@@ -7,6 +9,12 @@
   flex-direction: column;
   height: 90%;
   width: 60%;
+  @include respond-to(handhelds) {width: 100%};
+  @include respond-to(minimum-screens) {width: 85%; height: 95%; margin: auto};
+  @include respond-to(phone-screens) {width: 70%; margin: auto};
+  @include respond-to(medium-screens) {width:75%; height: 85%; margin: auto};
+  @include respond-to(standart-screens) {width: 30%};
+  @include respond-to(big-desktop) {width: 25%};
 }
 
 .AdvancedContainerParagraph {

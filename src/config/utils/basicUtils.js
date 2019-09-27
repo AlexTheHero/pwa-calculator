@@ -14,7 +14,6 @@ export const removeSignedValue = (value) => {
 
 export const resolvePercentageFromStringBasic = (values) => {
 	let newValues = [];
-	console.log(values)
 	
 	for (let i = 0; i < values.length; i++) {
 		if (values[i].includes('%')) {
