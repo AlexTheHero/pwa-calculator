@@ -1,21 +1,24 @@
-.defaultLayoutButton{
+.defaultLayoutButton {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  outline: 0;
+  border: none;
+  margin-bottom: 5%;
   width: 100%;
   height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: whitesmoke;
-  background-color: IndianRed;
+  background-color: #68919e;
 }
 
-.defaultLayoutButton:hover{
+.defaultLayoutButton:hover {
   background-color: #68919e;
-  color: black;
-};
+  color: #f6ca69;
+}
 
-.Text{
+.Text {
   font-size: 2em;
   display: flex;
   text-align: center;
@@ -24,9 +27,12 @@
   font-family: "Apple SD Gothic Neo", sans-serif;
 }
 
-.prestigeLayoutButton{
+.prestigeLayoutButton {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  margin-bottom: 5%;
+  outline: 0;
+  border: none;
   width: 100%;
   height: 10%;
   display: flex;
@@ -36,7 +42,7 @@
   color: rgba(255, 255, 224, 0.75);
 }
 
-.prestigeLayoutButton:hover{
+.prestigeLayoutButton:hover {
   background-color: rgba(65, 65, 129, 0.8);
   color: #D86489;
-};
+}

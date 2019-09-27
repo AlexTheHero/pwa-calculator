@@ -14,12 +14,16 @@ export const removeSignedValue = (value) => {
 
 export const resolvePercentageFromStringBasic = (values) => {
 	let newValues = [];
+	console.log(values)
 	
 	for (let i = 0; i < values.length; i++) {
 		if (values[i].includes('%')) {
 			if (values[i - 1] === '-' || values[i - 1] === '+') {
 				if(values[i - 2].includes('%')){
 					newValues.push(calculatePercentage(Number(newValues[newValues.length - 2]), Number(values[i].replace('%', ''))).toString());
+				}
+				else if(isNaN(values[i - 2])) {
+					newValues.push(calculatePercentage(Number(values[i].replace('%', ''))).toString());
 				}
 				else {
 					newValues.push(calculatePercentage(Number(values[i - 2]), Number(values[i].replace('%', ''))).toString());
