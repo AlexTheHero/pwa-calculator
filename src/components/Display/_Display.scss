@@ -1,4 +1,28 @@
 @import "../../config/utils/respond-to";
+@mixin return-button-default {
+  width: 50%;
+  height: 40%;
+  border-radius: 14px;
+  outline: 0;
+  border: none;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: transparent;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+@mixin default-copy-button {
+  width: 70%;
+  height: 40%;
+  border-radius: 14px;
+  outline: 0;
+  display: flex;
+  border: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
 
 .displayContainer {
   width: 100%;
@@ -89,16 +113,9 @@
 }
 
 .displayCopyButton {
-  width: 70%;
-  height: 40%;
-  border-radius: 14px;
-  outline: 0;
-  display: flex;
-  border: none;
+  @include default-copy-button;
   color: #475362;
   background-color: lightgrey;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
 }
 
 .displayCopyButton:hover {
@@ -107,17 +124,7 @@
 }
 
 .displayReturnButton {
-  width: 50%;
-  height: 40%;
-  border-radius: 14px;
-  outline: 0;
-  border: none;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  background-color: transparent;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+ @include return-button-default;
 }
 
 .displayReturnButton:hover {
@@ -175,18 +182,9 @@
 }
 
 .darkReturnTheme {
-  width: 50%;
-  height: 40%;
-  border-radius: 14px;
-  outline: 0;
-  border: none;
+  @include return-button-default;
   color: whitesmoke;
-  display: flex;
-  text-align: center;
-  justify-content: center;
   background-color: transparent;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
 }
 
 .darkReturnTheme:hover {
@@ -195,16 +193,9 @@
 }
 
 .prestigeCopyTheme {
-  width: 70%;
-  height: 40%;
-  border-radius: 14px;
-  outline: 0;
-  display: flex;
-  border: none;
+  @include default-copy-button;
   color: #f6ca69;
   background-color: #374252;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
 }
 
 .prestigeCopyTheme:hover {
@@ -213,17 +204,8 @@
 }
 
 .prestigeReturnTheme {
-  width: 50%;
-  height: 40%;
-  border-radius: 14px;
-  outline: 0;
-  border: none;
-  display: flex;
-  text-align: center;
-  justify-content: center;
+  @include return-button-default;
   background-color: transparent;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
 }
 
 .prestigeReturnTheme:hover {

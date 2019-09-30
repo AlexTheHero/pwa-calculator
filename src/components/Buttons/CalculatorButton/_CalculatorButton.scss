@@ -1,4 +1,18 @@
 @import "../../../config/utils/respond-to";
+@mixin default-button-Style {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  background-color: transparent;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  border-radius: 220px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
 
 .DefaultButtonContainer {
   display: flex;
@@ -13,18 +27,7 @@
 }
 
 .defaultSymbolButton {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  background-color: transparent;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
+  @include default-button-Style;
 }
 
 .defaultSymbolButton:hover {
@@ -33,19 +36,9 @@
 }
 
 .defaultCustomSymbolButton {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
+  @include default-button-Style;
   background-color: whitesmoke;
   color: #475362;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
 }
 
 .defaultCustomSymbolButton:hover {
@@ -54,18 +47,7 @@
 }
 
 .defaultDeleteButton{
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  background-color: transparent;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
+  @include default-button-Style;
   color: IndianRed;
 }
 
@@ -88,19 +70,9 @@
 }
 
 .prestigeCustomSymbolButton {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
+  @include default-button-Style;
   background-color: rgba(15, 22, 30, 0.74);
   color: rgba(255, 255, 224, 0.75);
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
 }
 
 .prestigeCustomSymbolButton:hover {
@@ -109,18 +81,7 @@
 }
 
 .prestigeDeleteButton{
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  background-color: transparent;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
+  @include default-button-Style;
   color: #D86489;
 }
 
@@ -130,38 +91,7 @@
 }
 
 .prestigeSymbolButton {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  background-color: transparent;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-}
-
-.prestigeSymbolButton:hover {
-  background-color: rgba(65, 65, 129, 0.8);
-  color: rgba(255, 255, 224, 0.75);
-}
-
-.prestigeSymbolButton {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  background-color: transparent;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  border-radius: 220px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
+  @include default-button-Style;
 }
 
 .prestigeSymbolButton:hover {
