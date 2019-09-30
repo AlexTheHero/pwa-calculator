@@ -4,7 +4,7 @@ const urlsToCache = [
 	'/',
 	'/basic',
 	'/advanced',
-	'/material',
+	'/ultimate',
 	'/options'
 ];
 
